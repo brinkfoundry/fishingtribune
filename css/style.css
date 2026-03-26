@@ -1,0 +1,64 @@
+/* Fishing Tribune — clean, readable affiliate site */
+:root {
+  --brand: #1a5632;
+  --brand-light: #e8f5ed;
+  --text: #1a1a1a;
+  --text-muted: #555;
+  --bg: #fafaf8;
+  --card: #fff;
+  --border: #e2e2e0;
+  --link: #1a5632;
+  --link-hover: #0d3a1f;
+  --max-w: 780px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 18px; scroll-behavior: smooth; }
+body { font-family: Georgia, 'Times New Roman', serif; color: var(--text); background: var(--bg); line-height: 1.7; }
+
+/* HEADER */
+header { background: var(--brand); padding: 18px 24px; }
+header .inner { max-width: var(--max-w); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+header h1 { font-size: 1.4rem; color: #fff; font-weight: 700; letter-spacing: .02em; }
+header h1 span { color: #8fcea3; }
+header nav a { color: #c8e6d0; text-decoration: none; margin-left: 20px; font-size: .85rem; font-family: -apple-system, Helvetica, Arial, sans-serif; }
+header nav a:hover { color: #fff; }
+
+/* MAIN CONTENT */
+main { max-width: var(--max-w); margin: 0 auto; padding: 40px 20px; }
+article h1 { font-size: 2rem; line-height: 1.25; margin-bottom: 8px; }
+article .byline { color: var(--text-muted); font-size: .8rem; font-family: -apple-system, Helvetica, Arial, sans-serif; margin-bottom: 32px; }
+article h2 { font-size: 1.35rem; margin: 36px 0 14px; border-bottom: 2px solid var(--brand-light); padding-bottom: 6px; }
+article h3 { font-size: 1.1rem; margin: 28px 0 10px; color: var(--brand); }
+article p { margin-bottom: 16px; }
+article ul, article ol { margin: 0 0 16px 24px; }
+article li { margin-bottom: 6px; }
+article a { color: var(--link); text-decoration: underline; text-underline-offset: 2px; }
+article a:hover { color: var(--link-hover); }
+article strong { font-weight: 700; }
+
+/* TABLES */
+table { width: 100%; border-collapse: collapse; margin: 20px 0 28px; font-size: .88rem; font-family: -apple-system, Helvetica, Arial, sans-serif; }
+th { background: var(--brand); color: #fff; text-align: left; padding: 10px 12px; font-weight: 600; }
+td { padding: 10px 12px; border-bottom: 1px solid var(--border); }
+tr:nth-child(even) td { background: #f5f5f3; }
+
+/* HERO */
+.hero-img { width: 100%; height: auto; border-radius: 6px; margin-bottom: 28px; }
+
+/* CTA BUTTONS */
+.cta { display: inline-block; background: var(--brand); color: #fff; padding: 10px 22px; border-radius: 4px; text-decoration: none; font-family: -apple-system, Helvetica, Arial, sans-serif; font-size: .85rem; font-weight: 600; margin: 4px 4px 4px 0; }
+.cta:hover { background: var(--link-hover); color: #fff; }
+
+/* FAQ */
+.faq dt { font-weight: 700; margin-top: 18px; }
+.faq dd { margin: 4px 0 14px 0; }
+
+/* FOOTER */
+footer { border-top: 1px solid var(--border); max-width: var(--max-w); margin: 60px auto 0; padding: 24px 20px; font-size: .78rem; color: var(--text-muted); font-family: -apple-system, Helvetica, Arial, sans-serif; text-align: center; }
+
+/* INDEX CARDS */
+.article-card { background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 24px; margin-bottom: 20px; }
+.article-card h2 { border: none; margin: 0 0 8px; font-size: 1.2rem; }
+.article-card h2 a { color: var(--text); text-decoration: none; }
+.article-card h2 a:hover { color: var(--brand); }
+.article-card p { color: var(--text-muted); font-size: .9rem; margin: 0; }
