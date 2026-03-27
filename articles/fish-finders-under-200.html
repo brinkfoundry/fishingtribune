@@ -27,6 +27,13 @@
     .methodology{border:1px solid #ddd;border-radius:6px;padding:8px}
     .author-bio{font-size:0.95rem;color:#333}
   </style>
+
+  <style>
+    .hero-image{width:100%;max-width:1100px;border-radius:14px;display:block;margin:1.25rem auto 1.5rem;box-shadow:0 10px 30px rgba(0,0,0,.12)}
+    .product-image{width:100%;max-width:240px;aspect-ratio:1/1;object-fit:contain;background:#fff;border:1px solid #e7e0d3;border-radius:12px;padding:12px;margin:0 0 1rem 0}
+    .comparison-thumb{width:56px;height:56px;object-fit:contain;background:#fff;border:1px solid #e7e0d3;border-radius:8px;padding:4px}
+    .table-product{display:flex;align-items:center;gap:10px}
+  </style>
 </head>
 <body>
   <header>
@@ -36,6 +43,8 @@
 
   <main>
     <h1>Best Fish Finders Under $200: Five Worth Buying (and a Few to Avoid)</h1>
+    
+    <img class="hero-image" src="../images/article-01-hero.png" alt="Kayak angler on a calm lake at dawn checking a fish finder screen" />
     <p class="byline">META DESCRIPTION: Five fish finders under $200 worth buying — Garmin Striker Cast, Lowrance Hook2 4x, Humminbird Helix 5 G2, Deeper Pro+, and the Eyoyo budget pick. Plus what to skip. <span class="badge">Tested & Approved</span></p>
 
     <div class="verdict" aria-label="quick verdict">
@@ -48,17 +57,18 @@
           <tr><th>Product</th><th>Price</th><th>Best For</th></tr>
         </thead>
         <tbody>
-          <tr class="winner"><td>Humminbird Helix 5 G2 ★</td><td>~$170-190</td><td>Best screen + features if you can stretch to $200</td></tr>
-          <tr><td>Garmin Striker Cast</td><td>~$100-130</td><td>Shore fishing, kayak anglers using a phone</td></tr>
-          <tr><td>Lowrance Hook2 4x</td><td>~$100-120</td><td>First boat mount, dead-simple setup</td></tr>
-          <tr><td>Deeper Pro+</td><td>~$150-180</td><td>Ice fishing, shore casting, advanced castable</td></tr>
-          <tr><td>Eyoyo Portable</td><td>~$40-60</td><td>Beginners, pier fishing, testing the concept</td></tr>
+          <tr class="winner"><td><div class="table-product"><img class="comparison-thumb" src="https://m.media-amazon.com/images/I/61r4XkD4fVL._AC_SL1500_.jpg" alt="Humminbird Helix 5 G2 fish finder" /><span>Humminbird Helix 5 G2 ★</span></div></td><td>~$170-190</td><td>Best screen + features if you can stretch to $200</td></tr>
+          <tr><td><div class="table-product"><img class="comparison-thumb" src="https://m.media-amazon.com/images/I/61b5H5GQh-L._AC_SL1500_.jpg" alt="Garmin Striker Cast fish finder" /><span>Garmin Striker Cast</span></div></td><td>~$100-130</td><td>Shore fishing, kayak anglers using a phone</td></tr>
+          <tr><td><div class="table-product"><img class="comparison-thumb" src="https://m.media-amazon.com/images/I/71Y3h9TQ2aL._AC_SL1500_.jpg" alt="Lowrance Hook2 4x fish finder" /><span>Lowrance Hook2 4x</span></div></td><td>~$100-120</td><td>First boat mount, dead-simple setup</td></tr>
+          <tr><td><div class="table-product"><img class="comparison-thumb" src="https://m.media-amazon.com/images/I/61Jx2dA4c-L._AC_SL1500_.jpg" alt="Deeper Pro Plus fish finder" /><span>Deeper Pro+</span></div></td><td>~$150-180</td><td>Ice fishing, shore casting, advanced castable</td></tr>
+          <tr><td><div class="table-product"><img class="comparison-thumb" src="https://m.media-amazon.com/images/I/61Qj8m4kL6L._AC_SL1500_.jpg" alt="Eyoyo portable fish finder" /><span>Eyoyo Portable</span></div></td><td>~$40-60</td><td>Beginners, pier fishing, testing the concept</td></tr>
         </tbody>
       </table>
     </div>
 
     <section class="product-card" id="garmin-striker-cast">
       <h2>Garmin Striker Cast — Best for Shore Anglers and Kayak Fishing</h2>
+      <img class="product-image" src="https://m.media-amazon.com/images/I/61b5H5GQh-L._AC_SL1500_.jpg" alt="Garmin Striker Cast — Best for Shore Anglers and Kayak Fishing" loading="lazy" />
       <dl>
         <dt>Key Specs</dt>
         <dd>Display: Your smartphone | Frequency: 260 kHz CHIRP | GPS: Available on GPS version | Battery: Rechargeable, ~10 hours | Weight: 2.2 oz</dd>
@@ -71,6 +81,7 @@
 
     <section class="product-card" id="lowrance-hook2-4x">
       <h2>Lowrance Hook2 4x — Best Entry-Level Boat Mount</h2>
+      <img class="product-image" src="https://m.media-amazon.com/images/I/71Y3h9TQ2aL._AC_SL1500_.jpg" alt="Lowrance Hook2 4x — Best Entry-Level Boat Mount" loading="lazy" />
       <dl>
         <dt>Key Specs</dt>
         <dd>Display: 4-inch, 480×272 | Frequency: 83/200 kHz dual | GPS: No | Power: 12V DC | Transducer: Bullet skimmer included</dd>
@@ -82,6 +93,7 @@
 
     <section class="product-card" id="humminbird-helix-5-g2">
       <h2>Humminbird Helix 5 G2 — Best Screen and Features Near the $200 Ceiling</h2>
+      <img class="product-image" src="https://m.media-amazon.com/images/I/61r4XkD4fVL._AC_SL1500_.jpg" alt="Humminbird Helix 5 G2 — Best Screen and Features Near the $200 Ceiling" loading="lazy" />
       <dl>
         <dt>Key Specs</dt>
         <dd>Display: 5-inch, 800×480 | Frequency: 83/200 kHz dual | GPS: Yes, chart plotting | Power: 12V DC | Transducer: XNT 9 20 T</dd>
@@ -93,6 +105,7 @@
 
     <section class="product-card" id="deeper-pro+">
       <h2>Deeper Pro+ — Best Castable for Ice Fishing</h2>
+      <img class="product-image" src="https://m.media-amazon.com/images/I/61Jx2dA4c-L._AC_SL1500_.jpg" alt="Deeper Pro+ — Best Castable for Ice Fishing" loading="lazy" />
       <dl>
         <dt>Key Specs</dt>
         <dd>Display: Your smartphone | Frequency: 290/90 kHz dual-beam CHIRP | GPS: Built-in | Battery: Rechargeable lithium, ~6 hours | Weight: 3.5 oz | Depth: 260 feet</dd>
@@ -104,6 +117,7 @@
 
     <section class="product-card" id="eyoyo-portable">
       <h2>Eyoyo Portable Fish Finder — Best Ultra-Budget Option</h2>
+      <img class="product-image" src="https://m.media-amazon.com/images/I/61Qj8m4kL6L._AC_SL1500_.jpg" alt="Eyoyo Portable Fish Finder — Best Ultra-Budget Option" loading="lazy" />
       <dl>
         <dt>Key Specs</dt>
         <dd>Display: 3.5-inch color LCD | Frequency: 200 kHz single | GPS: No | Power: 4 AA batteries | Transducer: Wired float-style, 20m cable | Depth: 328 feet</dd>
