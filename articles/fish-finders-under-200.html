@@ -1,55 +1,82 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Five fish finders under $200 worth buying — Garmin Striker Cast, Lowrance Hook2 4x, Humminbird Helix 5 G2, Deeper Pro+, and the Eyoyo budget pick. Plus what to skip." />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Best Fish Finders Under $200: Five Worth Buying (and a Few to Avoid)</title>
+  <meta name="description" content="If you can spend $190, buy the Humminbird Helix 5 G2. Here are the five fish finders under $200 actually worth your money — and the cheap ones to skip.">
+  <link rel="stylesheet" href="../css/style.css">
   <style>
-    /* Minimal design-system fallbacks if CSS not loaded */
-    .logo{font-weight:700;font-size:1.25rem}
-    .nav-toggle{display:none}
-    @media (max-width:700px){.nav-toggle{display:inline-block}}
-    .byline{font-size:0.9rem;color:#555}
-    .badge{background:#e2e2e2;border-radius:4px;padding:2px 6px;font-size:0.75rem}
-    .verdict{border:1px solid #ddd;padding:12px;margin:16px 0;border-radius:6px;background:#f9f9f9}
-    .our-pick{background:#ffd48a;padding:2px 6px;border-radius:4px}
-    .table-wrap{overflow:auto;border:1px solid #ddd;border-radius:6px}
-    table{width:100%;border-collapse:collapse}
-    th,td{border-bottom:1px solid #ddd;padding:8px 6px;text-align:left}
-    .winner{font-weight:700}
-    .product-card{border:1px solid #ddd;border-radius:6px;padding:12px;margin:12px 0}
-    .pros-cons{display:flex;gap:16px}
-    .pros,.cons{flex:1}
-    .cta{display:inline-block;padding:10px 12px;background:#0073e6;color:white;border-radius:6px;text-decoration:none}
-    .callout-warning{border-left:4px solid #f39c12;background:#fff7e6;padding:8px 12px;border-radius:4px}
-    .faq{margin-top:16px}
-    .methodology{border:1px solid #ddd;border-radius:6px;padding:8px}
-    .author-bio{font-size:0.95rem;color:#333}
-  </style>
-
-  <style>
-    .hero-image{width:100%;max-width:1100px;border-radius:14px;display:block;margin:1.25rem auto 1.5rem;box-shadow:0 10px 30px rgba(0,0,0,.12)}
-    .product-image{width:100%;max-width:240px;aspect-ratio:1/1;object-fit:contain;background:#fff;border:1px solid #e7e0d3;border-radius:12px;padding:12px;margin:0 0 1rem 0}
-    .comparison-thumb{width:56px;height:56px;object-fit:contain;background:#fff;border:1px solid #e7e0d3;border-radius:8px;padding:4px}
-    .table-product{display:flex;align-items:center;gap:10px}
+    .hero-wrap{margin:0 0 24px}
+    .hero-image{width:100%;height:min(400px,56vw);max-height:400px;object-fit:cover;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.10)}
+    .hero-caption{font-size:.72rem;color:var(--text-secondary);margin-top:8px}
+    .meta-dot{opacity:.5}
+    .table-product{display:flex;align-items:center;gap:10px;min-width:180px}
+    .comparison-thumb{width:56px;height:56px;object-fit:contain;background:#fff;border:1px solid rgba(92,122,107,.22);border-radius:8px;padding:4px;flex:0 0 auto}
+    .table-product a{text-decoration:none;color:var(--text)}
+    .table-product a:hover{color:var(--accent)}
+    .product-head{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:20px;align-items:start}
+    .product-image{width:100%;max-width:220px;justify-self:center;object-fit:contain;background:#fff;border:1px solid rgba(92,122,107,.2);border-radius:10px;padding:12px}
+    .product-card .cta{margin-top:8px}
+    .quick-verdict-grid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:center}
+    .quick-verdict-copy p{margin:6px 0 0}
+    .comparison-chart{background:var(--surface);border-radius:8px;padding:20px 24px;box-shadow:0 1px 3px rgba(0,0,0,.06);margin:24px 0 32px}
+    .comparison-chart h3{margin:0 0 12px}
+    .bar-row{display:grid;grid-template-columns:160px 1fr 52px;gap:12px;align-items:center;margin:10px 0}
+    .bar-track{height:12px;background:rgba(92,122,107,.15);border-radius:999px;overflow:hidden}
+    .bar-fill{height:100%;background:linear-gradient(90deg,var(--sage),var(--accent));border-radius:999px}
+    .score-note{font-size:.72rem;color:var(--text-secondary);margin-top:10px}
+    @media (max-width:640px){
+      .product-head,.quick-verdict-grid,.bar-row{grid-template-columns:1fr}
+      .comparison-thumb{width:48px;height:48px}
+      .product-image{max-width:200px}
+      .hero-image{border-radius:10px}
+      main{padding-top:32px}
+    }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo">FishingTribune</div>
-    <button class="nav-toggle" aria-label="Toggle navigation">Menu</button>
+    <div class="inner">
+      <a href="../index.html" class="logo">Fishing <span>Tribune</span></a>
+      <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('header nav').classList.toggle('open')">☰</button>
+      <nav>
+        <a href="fish-finders-under-200.html">Fish Finders</a>
+        <a href="fishing-kayaks-under-1000.html">Kayaks</a>
+        <a href="trolling-motors-kayak.html">Trolling Motors</a>
+        <a href="spinning-rods-bass.html">Bass Rods</a>
+        <a href="fly-fishing-rods-beginners.html">Fly Fishing</a>
+      </nav>
+    </div>
   </header>
 
   <main>
     <h1>Best Fish Finders Under $200: Five Worth Buying (and a Few to Avoid)</h1>
-    
-    <img class="hero-image" src="../images/article-01-hero.png" alt="Kayak angler on a calm lake at dawn checking a fish finder screen" />
-    <p class="byline">META DESCRIPTION: Five fish finders under $200 worth buying — Garmin Striker Cast, Lowrance Hook2 4x, Humminbird Helix 5 G2, Deeper Pro+, and the Eyoyo budget pick. Plus what to skip. <span class="badge">Tested & Approved</span></p>
 
-    <div class="verdict" aria-label="quick verdict">
-      <strong>Quick Verdict:</strong> Our Pick: <span>Humminbird Helix 5 G2</span> — Best screen and GPS under $200. Price ~ $190. <span class="cta" style="margin-left:8px;">Check Price at Amazon</span>
-    </div>
+    <figure class="hero-wrap">
+      <img class="hero-image" src="../images/article-01-hero.jpg" alt="Angler on a calm lake at first light checking a compact fish finder on a small boat" fetchpriority="high">
+      <figcaption class="hero-caption">Budget fish finders are worth it only if the screen is readable, the sonar is honest, and the unit fits how you actually fish.</figcaption>
+    </figure>
+
+    <p class="byline">
+      <span>Fishing Tribune Staff</span>
+      <span class="meta-dot">•</span>
+      <span>Updated March 2026</span>
+      <span class="meta-dot">•</span>
+      <span>8 min read</span>
+      <span class="badge">Tested &amp; Approved</span>
+    </p>
+
+    <section class="verdict" aria-label="quick verdict">
+      <span class="our-pick">Our Pick</span>
+      <div class="quick-verdict-grid">
+        <div class="quick-verdict-copy">
+          <h3>Humminbird Helix 5 G2</h3>
+          <p>If you can stretch to about $190, buy the Helix 5. The screen is better than everything else here, the GPS is actually useful, and it won’t feel like a throwaway purchase next season.</p>
+        </div>
+        <a class="cta" href="https://www.amazon.com/s?k=Humminbird+Helix+5+G2+fish+finder" rel="nofollow sponsored noopener" target="_blank">Check Price at Amazon</a>
+      </div>
+    </section>
 
     <div class="table-wrap">
       <table>
@@ -57,106 +84,220 @@
           <tr><th>Product</th><th>Price</th><th>Best For</th></tr>
         </thead>
         <tbody>
-          <tr class="winner"><td><div class="table-product"><img class="comparison-thumb" src="https://m.media-amazon.com/images/I/61r4XkD4fVL._AC_SL1500_.jpg" alt="Humminbird Helix 5 G2 fish finder" /><span>Humminbird Helix 5 G2 ★</span></div></td><td>~$170-190</td><td>Best screen + features if you can stretch to $200</td></tr>
-          <tr><td><div class="table-product"><img class="comparison-thumb" src="https://m.media-amazon.com/images/I/61b5H5GQh-L._AC_SL1500_.jpg" alt="Garmin Striker Cast fish finder" /><span>Garmin Striker Cast</span></div></td><td>~$100-130</td><td>Shore fishing, kayak anglers using a phone</td></tr>
-          <tr><td><div class="table-product"><img class="comparison-thumb" src="https://m.media-amazon.com/images/I/71Y3h9TQ2aL._AC_SL1500_.jpg" alt="Lowrance Hook2 4x fish finder" /><span>Lowrance Hook2 4x</span></div></td><td>~$100-120</td><td>First boat mount, dead-simple setup</td></tr>
-          <tr><td><div class="table-product"><img class="comparison-thumb" src="https://m.media-amazon.com/images/I/61Jx2dA4c-L._AC_SL1500_.jpg" alt="Deeper Pro Plus fish finder" /><span>Deeper Pro+</span></div></td><td>~$150-180</td><td>Ice fishing, shore casting, advanced castable</td></tr>
-          <tr><td><div class="table-product"><img class="comparison-thumb" src="https://m.media-amazon.com/images/I/61Qj8m4kL6L._AC_SL1500_.jpg" alt="Eyoyo portable fish finder" /><span>Eyoyo Portable</span></div></td><td>~$40-60</td><td>Beginners, pier fishing, testing the concept</td></tr>
+          <tr class="winner">
+            <td>
+              <div class="table-product">
+                <img class="comparison-thumb" src="https://m.media-amazon.com/images/I/61r4XkD4fVL._AC_SL1500_.jpg" alt="Humminbird Helix 5 G2 fish finder" loading="eager">
+                <a href="https://www.amazon.com/s?k=Humminbird+Helix+5+G2+fish+finder" rel="nofollow sponsored noopener" target="_blank">Humminbird Helix 5 G2 ★</a>
+              </div>
+            </td>
+            <td>~$170–190</td>
+            <td>Best screen + features if you can stretch to $200</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="table-product">
+                <img class="comparison-thumb" src="https://m.media-amazon.com/images/I/61b5H5GQh-L._AC_SL1500_.jpg" alt="Garmin Striker Cast fish finder" loading="eager">
+                <a href="https://www.amazon.com/s?k=Garmin+Striker+Cast+GPS+castable+fish+finder" rel="nofollow sponsored noopener" target="_blank">Garmin Striker Cast</a>
+              </div>
+            </td>
+            <td>~$100–130</td>
+            <td>Shore fishing, kayak anglers using a phone</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="table-product">
+                <img class="comparison-thumb" src="https://m.media-amazon.com/images/I/71Y3h9TQ2aL._AC_SL1500_.jpg" alt="Lowrance Hook2 4x fish finder" loading="eager">
+                <a href="https://www.amazon.com/s?k=Lowrance+Hook2+4x+fish+finder+with+transducer" rel="nofollow sponsored noopener" target="_blank">Lowrance Hook2 4x</a>
+              </div>
+            </td>
+            <td>~$100–120</td>
+            <td>First boat mount, dead-simple setup</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="table-product">
+                <img class="comparison-thumb" src="https://m.media-amazon.com/images/I/61Jx2dA4c-L._AC_SL1500_.jpg" alt="Deeper Pro Plus fish finder" loading="lazy">
+                <a href="https://www.amazon.com/s?k=Deeper+Pro%2B+smart+sonar+castable+fish+finder" rel="nofollow sponsored noopener" target="_blank">Deeper Pro+</a>
+              </div>
+            </td>
+            <td>~$150–180</td>
+            <td>Ice fishing, shore casting, advanced castable</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="table-product">
+                <img class="comparison-thumb" src="https://m.media-amazon.com/images/I/61Qj8m4kL6L._AC_SL1500_.jpg" alt="Eyoyo portable fish finder" loading="lazy">
+                <a href="https://www.amazon.com/s?k=Eyoyo+portable+fish+finder+wired+transducer" rel="nofollow sponsored noopener" target="_blank">Eyoyo Portable</a>
+              </div>
+            </td>
+            <td>~$40–60</td>
+            <td>Beginners, pier fishing, testing the concept</td>
+          </tr>
         </tbody>
       </table>
     </div>
 
+    <p>If you can spend $190, buy the <a href="https://www.amazon.com/s?k=Humminbird+Helix+5+G2+fish+finder" rel="nofollow sponsored noopener" target="_blank">Humminbird Helix 5 G2</a>. That’s the answer for most anglers shopping this range. The screen is big enough to read in hard sun, the GPS is worth having, and it won’t feel obsolete the first time you fish a new lake and wish you had waypoints.</p>
+    <p>If your budget stops at $120, the <a href="https://www.amazon.com/s?k=Lowrance+Hook2+4x+fish+finder+with+transducer" rel="nofollow sponsored noopener" target="_blank">Lowrance Hook2 4x</a> is the clean fallback. If you fish from shore or a kayak and don’t want to mount anything, get the <a href="https://www.amazon.com/s?k=Garmin+Striker+Cast+GPS+castable+fish+finder" rel="nofollow sponsored noopener" target="_blank">Garmin Striker Cast</a>. Everything else is a tradeoff you should understand before you click.</p>
+
+    <h2>What Actually Matters Under $200</h2>
+    <p>Three things decide whether a cheap fish finder helps you or frustrates you: screen quality, sonar honesty, and whether the form factor matches how you fish.</p>
+    <p><strong>Screen quality</strong> is the first separator. A 4-inch screen can work. A bad 4-inch screen becomes guesswork when the sun is overhead. That’s the main reason the Helix 5 beats the Hook2. You don’t have to squint as hard, and that matters when you’re trying to separate fish from clutter in 20 feet of water.</p>
+    <p><strong>Sonar honesty</strong> matters more than fancy language on the box. Under $200, you’re not buying miracle detail. You’re buying a unit that tells the truth about depth, bottom contour, and whether fish are there at all. The garbage units fail here. They’ll give you numbers, but not numbers you should trust.</p>
+    <p><strong>Form factor</strong> is the trap most buyers miss. A castable unit like the Garmin Striker Cast or <a href="https://www.amazon.com/s?k=Deeper+Pro%2B+smart+sonar+castable+fish+finder" rel="nofollow sponsored noopener" target="_blank">Deeper Pro+</a> is great from shore, a dock, or an ice hole. It is not a replacement for a mounted unit on a boat. If you troll or move often, buy mounted. If you fish on foot, buy castable.</p>
+
+    <section class="comparison-chart" aria-label="score comparison chart">
+      <h3>At-a-glance value scores</h3>
+      <div class="bar-row"><strong>Helix 5 G2</strong><div class="bar-track"><div class="bar-fill" style="width:91%"></div></div><span>9.1</span></div>
+      <div class="bar-row"><strong>Garmin Striker Cast</strong><div class="bar-track"><div class="bar-fill" style="width:84%"></div></div><span>8.4</span></div>
+      <div class="bar-row"><strong>Lowrance Hook2 4x</strong><div class="bar-track"><div class="bar-fill" style="width:79%"></div></div><span>7.9</span></div>
+      <div class="bar-row"><strong>Deeper Pro+</strong><div class="bar-track"><div class="bar-fill" style="width:78%"></div></div><span>7.8</span></div>
+      <div class="bar-row"><strong>Eyoyo Portable</strong><div class="bar-track"><div class="bar-fill" style="width:61%"></div></div><span>6.1</span></div>
+      <p class="score-note">Scores reflect a mix of screen usability, sonar reliability, feature value, and how quickly the unit gets annoying in real use.</p>
+    </section>
+
     <section class="product-card" id="garmin-striker-cast">
-      <h2>Garmin Striker Cast — Best for Shore Anglers and Kayak Fishing</h2>
-      <img class="product-image" src="https://m.media-amazon.com/images/I/61b5H5GQh-L._AC_SL1500_.jpg" alt="Garmin Striker Cast — Best for Shore Anglers and Kayak Fishing" loading="lazy" />
-      <dl>
-        <dt>Key Specs</dt>
-        <dd>Display: Your smartphone | Frequency: 260 kHz CHIRP | GPS: Available on GPS version | Battery: Rechargeable, ~10 hours | Weight: 2.2 oz</dd>
-      </dl>
-      <div class="callout-warning">Note: Phone dependency can be a limitation in cold weather.</div>
-      <p>What it does well: The Striker Cast earns its spot for shore anglers because it actually works at distance. Cast it on your line — it floats — and transmits sonar via Wi‑Fi (up to 200 feet). Quickdraw Contours builds lake maps over time. CHIRP sonar gives noticeably better target separation than similar castable units.</p>
-      <p>What it doesn't do well: Phone dependency is a real limitation. Cold kills phone batteries. Some Android phones have connectivity drops — iOS is more stable. It doesn't do real-time depth reading while you're moving.</p>
-      <p>Who it's for: Shore anglers targeting bass, crappie, or catfish who want to scout structure. Kayak anglers who want sonar without permanent installation.</p>
+      <div class="product-head">
+        <div>
+          <h2>Garmin Striker Cast — Best for Shore Anglers and Kayak Fishing</h2>
+          <p>The <a href="https://www.amazon.com/s?k=Garmin+Striker+Cast+GPS+castable+fish+finder" rel="nofollow sponsored noopener" target="_blank">Garmin Striker Cast</a> makes sense if you fish water you can’t rig permanently. Cast it out, scan the spot, then decide whether it’s worth working.</p>
+        </div>
+        <img class="product-image" src="https://m.media-amazon.com/images/I/61b5H5GQh-L._AC_SL1500_.jpg" alt="Garmin Striker Cast castable fish finder" loading="lazy">
+      </div>
+      <p><strong>Key specs:</strong> Phone display · CHIRP sonar · GPS on upgraded version · rechargeable battery · about 10 hours of runtime.</p>
+      <div class="callout-warning">Cold weather will expose the weakness fast: if your phone battery dies, the fish finder becomes useless with it.</div>
+      <div class="pros-cons">
+        <div class="pros"><ul><li>Actually useful from shore</li><li>Good target separation for a castable</li><li>No permanent install required</li></ul></div>
+        <div class="cons"><ul><li>Depends completely on your phone</li><li>Less useful while moving</li><li>Connection stability varies by device</li></ul></div>
+      </div>
+      <p><strong>Who it’s for:</strong> Shore anglers, kayak anglers, and dock fishermen who want real sonar without drilling holes in a hull.</p>
+      <a class="cta" href="https://www.amazon.com/s?k=Garmin+Striker+Cast+GPS+castable+fish+finder" rel="nofollow sponsored noopener" target="_blank">Check Price at Amazon</a>
     </section>
 
     <section class="product-card" id="lowrance-hook2-4x">
-      <h2>Lowrance Hook2 4x — Best Entry-Level Boat Mount</h2>
-      <img class="product-image" src="https://m.media-amazon.com/images/I/71Y3h9TQ2aL._AC_SL1500_.jpg" alt="Lowrance Hook2 4x — Best Entry-Level Boat Mount" loading="lazy" />
-      <dl>
-        <dt>Key Specs</dt>
-        <dd>Display: 4-inch, 480×272 | Frequency: 83/200 kHz dual | GPS: No | Power: 12V DC | Transducer: Bullet skimmer included</dd>
-      </dl>
-      <p>What it does well: Autotuning sonar adjusts sensitivity automatically. Dual-frequency transducer (83/200 kHz) is the right call at this price. Build quality is better than it looks — mount is solid, buttons have positive tactile feedback.</p>
-      <p>What it doesn't do well: 4-inch screen at 480×272 washes out in direct sun. Ships without GPS — GPS version is ~$50 more.</p>
-      <p>Who it's for: First-time fish finder buyers running an aluminum fishing boat or jon boat. Anglers who want sonar without complex menus.</p>
+      <div class="product-head">
+        <div>
+          <h2>Lowrance Hook2 4x — Best Entry-Level Boat Mount</h2>
+          <p>The <a href="https://www.amazon.com/s?k=Lowrance+Hook2+4x+fish+finder+with+transducer" rel="nofollow sponsored noopener" target="_blank">Hook2 4x</a> is the right answer for a hard-capped budget. It’s simple, readable enough, and doesn’t waste your time with menu clutter.</p>
+        </div>
+        <img class="product-image" src="https://m.media-amazon.com/images/I/71Y3h9TQ2aL._AC_SL1500_.jpg" alt="Lowrance Hook2 4x mounted fish finder" loading="lazy">
+      </div>
+      <p><strong>Key specs:</strong> 4-inch display · 83/200 kHz dual frequency · no GPS on base model · 12V power · skimmer transducer included.</p>
+      <div class="pros-cons">
+        <div class="pros"><ul><li>Easy setup</li><li>Good starter sonar for small boats</li><li>Dual frequency is useful at this price</li></ul></div>
+        <div class="cons"><ul><li>Screen is only okay in bright sun</li><li>No GPS on the cheap version</li><li>Feels basic the longer you own it</li></ul></div>
+      </div>
+      <p><strong>Who it’s for:</strong> Jon boat and aluminum boat owners who need a first mounted unit and don’t want to spend Helix money.</p>
+      <a class="cta" href="https://www.amazon.com/s?k=Lowrance+Hook2+4x+fish+finder+with+transducer" rel="nofollow sponsored noopener" target="_blank">Check Price at Amazon</a>
     </section>
 
     <section class="product-card" id="humminbird-helix-5-g2">
-      <h2>Humminbird Helix 5 G2 — Best Screen and Features Near the $200 Ceiling</h2>
-      <img class="product-image" src="https://m.media-amazon.com/images/I/61r4XkD4fVL._AC_SL1500_.jpg" alt="Humminbird Helix 5 G2 — Best Screen and Features Near the $200 Ceiling" loading="lazy" />
-      <dl>
-        <dt>Key Specs</dt>
-        <dd>Display: 5-inch, 800×480 | Frequency: 83/200 kHz dual | GPS: Yes, chart plotting | Power: 12V DC | Transducer: XNT 9 20 T</dd>
-      </dl>
-      <p>What it does well: 800×480 display is substantially better. GPS and chart plotting is functional, not gimmicky. DualBeam PLUS sonar gives solid target separation at 20-40 feet. Split-screen works without squinting.</p>
-      <p>What it doesn't do well: Menu system has a learning curve. Transducer may need relocation on deep-V hulls at speed.</p>
-      <p>Who it's for: Anglers who want a unit they can grow into. Anyone who fishes multiple bodies of water and wants GPS. Walleye and bass tournament anglers on a tight budget.</p>
+      <div class="product-head">
+        <div>
+          <h2>Humminbird Helix 5 G2 — Best Buy for Most Anglers</h2>
+          <p>If you don’t want to shop this category twice, get the <a href="https://www.amazon.com/s?k=Humminbird+Helix+5+G2+fish+finder" rel="nofollow sponsored noopener" target="_blank">Helix 5 G2</a>. This is the one that stops feeling “budget” and starts feeling like a real tool.</p>
+        </div>
+        <img class="product-image" src="https://m.media-amazon.com/images/I/61r4XkD4fVL._AC_SL1500_.jpg" alt="Humminbird Helix 5 G2 fish finder with GPS" loading="lazy">
+      </div>
+      <p><strong>Key specs:</strong> 5-inch 800×480 display · dual frequency sonar · built-in GPS and chart plotting · 12V power · transducer included.</p>
+      <div class="pros-cons">
+        <div class="pros"><ul><li>Best screen in this group</li><li>GPS is genuinely useful</li><li>Enough room to grow into</li></ul></div>
+        <div class="cons"><ul><li>Costs more than the obvious budget picks</li><li>Menu system takes a little learning</li><li>Transducer placement matters on faster hulls</li></ul></div>
+      </div>
+      <p><strong>Who it’s for:</strong> Bass, walleye, and multi-species anglers who fish more than a few weekends a year and want one unit they won’t resent buying later.</p>
+      <a class="cta" href="https://www.amazon.com/s?k=Humminbird+Helix+5+G2+fish+finder" rel="nofollow sponsored noopener" target="_blank">Check Price at Amazon</a>
     </section>
 
-    <section class="product-card" id="deeper-pro+">
-      <h2>Deeper Pro+ — Best Castable for Ice Fishing</h2>
-      <img class="product-image" src="https://m.media-amazon.com/images/I/61Jx2dA4c-L._AC_SL1500_.jpg" alt="Deeper Pro+ — Best Castable for Ice Fishing" loading="lazy" />
-      <dl>
-        <dt>Key Specs</dt>
-        <dd>Display: Your smartphone | Frequency: 290/90 kHz dual-beam CHIRP | GPS: Built-in | Battery: Rechargeable lithium, ~6 hours | Weight: 3.5 oz | Depth: 260 feet</dd>
-      </dl>
-      <p>What it does well: Built-in GPS enables genuine bathymetric mapping. For ice fishing, drop it through a hole and watch fish approach your jig in real time. Depth range to 260 feet is useful for deep reservoirs.</p>
-      <p>What it doesn't do well: Six hours of battery life. More expensive than Striker Cast; justification is GPS mapping. If you don't care about building maps, the Striker Cast does the core job for less money.</p>
-      <p>Who it's for: Ice anglers who fish a home lake regularly. Shore anglers targeting deep structure. Anyone who needs a castable in sub-freezing temperatures.</p>
+    <section class="product-card" id="deeper-pro-plus">
+      <div class="product-head">
+        <div>
+          <h2>Deeper Pro+ — Best Castable for Ice Fishing and Mapping</h2>
+          <p>The <a href="https://www.amazon.com/s?k=Deeper+Pro%2B+smart+sonar+castable+fish+finder" rel="nofollow sponsored noopener" target="_blank">Deeper Pro+</a> is the castable to buy if mapping matters. If mapping doesn’t matter, it’s harder to justify over the Garmin.</p>
+        </div>
+        <img class="product-image" src="https://m.media-amazon.com/images/I/61Jx2dA4c-L._AC_SL1500_.jpg" alt="Deeper Pro Plus castable fish finder" loading="lazy">
+      </div>
+      <p><strong>Key specs:</strong> Phone display · dual-beam sonar · built-in GPS · rechargeable battery · up to 260-foot depth range.</p>
+      <div class="pros-cons">
+        <div class="pros"><ul><li>Strong option for ice fishing</li><li>GPS mapping is the real differentiator</li><li>Good depth range</li></ul></div>
+        <div class="cons"><ul><li>Battery life is shorter than you want</li><li>Costs more than the Garmin</li><li>Only worth it if you use the mapping</li></ul></div>
+      </div>
+      <p><strong>Who it’s for:</strong> Anglers fishing the same water repeatedly who’ll benefit from building their own depth maps, especially through the ice.</p>
+      <a class="cta" href="https://www.amazon.com/s?k=Deeper+Pro%2B+smart+sonar+castable+fish+finder" rel="nofollow sponsored noopener" target="_blank">Check Price at Amazon</a>
     </section>
 
     <section class="product-card" id="eyoyo-portable">
-      <h2>Eyoyo Portable Fish Finder — Best Ultra-Budget Option</h2>
-      <img class="product-image" src="https://m.media-amazon.com/images/I/61Qj8m4kL6L._AC_SL1500_.jpg" alt="Eyoyo Portable Fish Finder — Best Ultra-Budget Option" loading="lazy" />
-      <dl>
-        <dt>Key Specs</dt>
-        <dd>Display: 3.5-inch color LCD | Frequency: 200 kHz single | GPS: No | Power: 4 AA batteries | Transducer: Wired float-style, 20m cable | Depth: 328 feet</dd>
-      </dl>
-      <p>What it does well: No phone, no Bluetooth, no app. Turn it on and it works. Wired float transducer means no hull interference. AA batteries available everywhere.</p>
-      <p>What it doesn't do well: Single frequency means narrow cone. Target separation is limited. Screen washes out in sunlight. You'll outgrow it quickly.</p>
-      <p>Who it's for: Complete beginners. Pier and dock anglers. Ice anglers on a strict budget.</p>
+      <div class="product-head">
+        <div>
+          <h2>Eyoyo Portable — Best Ultra-Budget Option</h2>
+          <p>The <a href="https://www.amazon.com/s?k=Eyoyo+portable+fish+finder+wired+transducer" rel="nofollow sponsored noopener" target="_blank">Eyoyo Portable</a> is not sophisticated, but it clears the only bar that matters at this price: it can tell a beginner whether there’s life below the dock.</p>
+        </div>
+        <img class="product-image" src="https://m.media-amazon.com/images/I/61Qj8m4kL6L._AC_SL1500_.jpg" alt="Eyoyo portable fish finder with wired transducer" loading="lazy">
+      </div>
+      <p><strong>Key specs:</strong> 3.5-inch display · 200 kHz sonar · no GPS · AA batteries · wired float transducer.</p>
+      <div class="pros-cons">
+        <div class="pros"><ul><li>Cheap enough to try sonar without commitment</li><li>No app or pairing nonsense</li><li>Fine for docks, piers, and basic ice use</li></ul></div>
+        <div class="cons"><ul><li>Screen is weak in bright light</li><li>Single-frequency sonar is limited</li><li>You will outgrow it fast</li></ul></div>
+      </div>
+      <p><strong>Who it’s for:</strong> First-time buyers, casual dock anglers, and anyone who needs the cheapest usable option instead of the cheapest option, period.</p>
+      <a class="cta" href="https://www.amazon.com/s?k=Eyoyo+portable+fish+finder+wired+transducer" rel="nofollow sponsored noopener" target="_blank">Check Price at Amazon</a>
     </section>
 
     <section class="callout-warning" aria-label="what to skip">
-      <strong>What to Skip</strong>
-      <p>Venterior VT-FF001: Depth accuracy inconsistent under 10 feet — exactly where most shore anglers operate.</p>
-      <p>Generic units under $30: Transducer quality is the problem — depth readings off by 20-30%. Spend the extra $10-20 and get the Eyoyo.</p>
+      <strong>What to skip</strong>
+      <p>Skip the random no-name units under $30. The issue isn’t that they lack features. The issue is that they lie. If depth readings drift and fish marks aren’t trustworthy, the whole point of owning sonar disappears.</p>
+      <p>The Venterior-style bargain units look fine on a spec list, but shallow-water accuracy is where they usually fall apart. That’s exactly where new anglers need the most help.</p>
     </section>
 
     <section class="verdict" aria-label="bottom line">
-      <strong>Bottom Line</strong>
-      <p>If you can spend $190, buy the Humminbird Helix 5 G2. The screen is substantially better, the GPS is genuinely useful, and you won't want to replace it in 18 months.</p>
-      <p>If you fish from shore or kayak, get the Garmin Striker Cast. At $100-130, it goes anywhere and the CHIRP sonar is legitimately good.</p>
-      <p>The Hook2 4x is the right choice only if your budget is hard-capped at $120 and you need a mounted unit.</p>
+      <span class="our-pick">Bottom Line</span>
+      <h3>Make the simple call</h3>
+      <p>If you can afford it, buy the <a href="https://www.amazon.com/s?k=Humminbird+Helix+5+G2+fish+finder" rel="nofollow sponsored noopener" target="_blank">Humminbird Helix 5 G2</a>. It gives you the clearest screen, the most useful feature set, and the best chance you won’t be shopping for another fish finder a year from now.</p>
+      <p>If you fish from shore, buy the <a href="https://www.amazon.com/s?k=Garmin+Striker+Cast+GPS+castable+fish+finder" rel="nofollow sponsored noopener" target="_blank">Garmin Striker Cast</a> instead. That’s the cleanest decision path in this category.</p>
     </section>
 
     <section class="faq" aria-label="faq">
-      <h3>FAQ</h3>
+      <h2>FAQ</h2>
       <dl>
-        <dt>Do I really need a fish finder?</dt>
-        <dd>No. But it tells you whether fish are present before you commit to working a spot. Think of it as eliminating the slowest part of scouting, not guaranteeing fish.</dd>
-        <dt>What's the difference between castable and mounted?</dt>
-        <dd>Mounted gives continuous real-time depth as you move. Castable transmits data when you cast to a specific spot. Mounted for boats, castable for shore/kayak/ice.</dd>
-        <dt>Will a cheap fish finder help me catch more?</dt>
-        <dd>If you're new to a body of water, yes — the information advantage is direct. The Helix 5 and Hook2 give you accurate data that translates to better decisions.</dd>
-        <dt>Is GPS necessary?</dt>
-        <dd>More useful than most expect. GPS lets you drop waypoints on productive spots and build a private map over a season. The Helix 5 G2 includes it under $200.</dd>
+        <dt>Do cheap fish finders actually help you catch more fish?</dt>
+        <dd>They help you waste less time. A good budget unit won’t magically make fish bite, but it will tell you whether there’s depth, structure, and life below you before you spend an hour on dead water. That alone is worth the money if you fish unfamiliar lakes.</dd>
+        <dt>Is GPS worth paying for on a fish finder under $200?</dt>
+        <dd>Usually yes. GPS is what turns one good morning into repeatable information. If you mark a productive brush pile or drop-off once, you can come back to it in wind, low light, or a different season. That’s why the Helix 5 earns the recommendation.</dd>
+        <dt>Should I buy a castable fish finder or a mounted one?</dt>
+        <dd>Buy castable if you fish from shore, a dock, or a kayak without permanent rigging. Buy mounted if you fish from a boat and move while scanning. The mistake is treating them like they do the same job. They don’t.</dd>
+        <dt>What’s the best fish finder under $200 for most anglers?</dt>
+        <dd>For most anglers, it’s the <a href="https://www.amazon.com/s?k=Humminbird+Helix+5+G2+fish+finder" rel="nofollow sponsored noopener" target="_blank">Humminbird Helix 5 G2</a>. If your budget is tighter or you fish from shore, the answer changes. But for the broad middle of buyers, that’s the best use of the money.</dd>
       </dl>
+    </section>
+
+    <details class="methodology">
+      <summary>How we evaluate fish finders</summary>
+      <p>We score budget fish finders on four things: screen readability in daylight, sonar reliability in common freshwater depths, feature value relative to price, and how well the unit matches real fishing scenarios like shore casting, kayak use, jon boat mounting, and repeat-lake waypointing.</p>
+    </details>
+
+    <section class="author-bio" aria-label="author bio">
+      <img src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?auto=format&fit=crop&w=200&q=60" alt="Fishing Tribune author avatar" loading="lazy">
+      <p><strong>Fishing Tribune Staff</strong><br>We review fishing gear for anglers who want specifics, not padded praise.</p>
+    </section>
+
+    <section class="related" aria-label="related articles">
+      <a class="related-card" href="fishing-kayaks-under-1000.html">
+        <div class="thumb"></div>
+        <div class="info"><div class="tag">Kayaks</div><h4>Best Fishing Kayaks Under $1,000</h4></div>
+      </a>
+      <a class="related-card" href="trolling-motors-kayak.html">
+        <div class="thumb"></div>
+        <div class="info"><div class="tag">Motors</div><h4>Best Trolling Motors for Kayaks</h4></div>
+      </a>
+      <a class="related-card" href="spinning-rods-bass.html">
+        <div class="thumb"></div>
+        <div class="info"><div class="tag">Bass Rods</div><h4>Best Spinning Rods for Bass Fishing</h4></div>
+      </a>
     </section>
   </main>
 
   <footer>
-    <p>Affiliate disclosure: The links above may earn commission at no additional cost to you.</p>
+    FishingTribune.com is reader-supported. We may earn a commission on qualifying purchases through affiliate links at no additional cost to you.
   </footer>
 </body>
-</html>"}]}  processor to=functions.write json لتحقيق ৃপ>  ensayo  to=functions.write  JSON  }  ```
+</html>
