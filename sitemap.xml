@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://fishingtribune.com/index.html</loc></url>
-  <url><loc>https://fishingtribune.com/best-fish-finders-under-200.html</loc></url>
-  <url><loc>https://fishingtribune.com/best-fishing-kayaks-under-1000.html</loc></url>
-  <url><loc>https://fishingtribune.com/best-kayak-trolling-motors-under-300.html</loc></url>
-  <url><loc>https://fishingtribune.com/best-spinning-rods-for-bass.html</loc></url>
-  <url><loc>https://fishingtribune.com/best-fly-fishing-rods-for-beginners.html</loc></url>
-  <url><loc>https://fishingtribune.com/best-saltwater-spinning-rods-for-beginners.html</loc></url>
+  <url>
+    <loc>https://fishingtribune.com/index.html</loc>
+  </url>
+  <url>
+    <loc>https://fishingtribune.com/best-fish-finders-under-200.html</loc>
+  </url>
+  <url>
+    <loc>https://fishingtribune.com/best-fishing-kayaks-under-1000.html</loc>
+  </url>
+  <url>
+    <loc>https://fishingtribune.com/best-kayak-trolling-motors-under-300.html</loc>
+  </url>
+  <url>
+    <loc>https://fishingtribune.com/best-spinning-rods-for-bass.html</loc>
+  </url>
+  <url>
+    <loc>https://fishingtribune.com/best-fly-fishing-rods-for-beginners.html</loc>
+  </url>
+  <url>
+    <loc>https://fishingtribune.com/best-saltwater-spinning-rods-for-beginners.html</loc>
+  </url>
 </urlset>
