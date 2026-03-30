@@ -1,0 +1,1 @@
+I’m checking GitHub auth and the local site directory, then I’ll create the repo, push it, and write durable notes.
