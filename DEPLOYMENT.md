@@ -1,75 +1,53 @@
-GitHub repo setup complete for FishingTribune static site.
+# FishingTribune — GitHub + Cloudflare Pages Deployment
+_Last updated: 2026-03-30_
 
-Repository
-https://github.com/brinkfoundry/fishingtribune
+## Repository
+- **GitHub:** https://github.com/brinkfoundry/fishingtribune
+- **Account:** brinkfoundry
+- **Branch:** main
+- **Remote:** git@github.com:brinkfoundry/fishingtribune.git
+- **Local path:** ~/clawd/ventures/tribune/site/
+- **Latest commit:** 1bd2f8a
 
-Local path
-/Users/openclaw/clawd/ventures/tribune/site
+## Auth
+- `gh auth status`: authenticated as brinkfoundry, token scopes include `repo`
+- SSH key configured for git push (no HTTPS credentials needed)
 
-Durable notes file written
-/Users/openclaw/clawd/ventures/tribune/site/GITHUB_SETUP.md
+## Current Site State
+- index.html: full editorial homepage, 6 article cards, hero, FTC disclosure
+- 6 article HTML pages converted from REVENUE markdown sources
+- styles.css: responsive, 3-col desktop / 1-col mobile
+- sitemap.xml: index + 6 article URLs
+- robots.txt: allow all, points to sitemap
+- JSON-LD Article schema on all article pages
+- Amazon affiliate links using tag `fishingtribun-20`
 
-Commands run and results
+## Cloudflare Pages Setup
+To connect auto-deploy:
+1. Go to https://dash.cloudflare.com → Pages → Create a project
+2. Connect to GitHub → select `brinkfoundry/fishingtribune`
+3. Settings:
+   - **Framework preset:** None (plain HTML)
+   - **Build command:** _(leave blank)_
+   - **Build output directory:** `/`
+   - **Root directory:** _(leave blank)_
+   - **Branch:** main
+4. Deploy → Cloudflare assigns a `*.pages.dev` subdomain
+5. Add custom domain: `fishingtribune.com`
+   - Add CNAME record in DNS: `fishingtribune.com → <project>.pages.dev`
+   - Or use Cloudflare nameservers if domain is on Cloudflare
 
-1) gh auth status
-Result:
-- authenticated to github.com as brinkfoundry
-- token scopes include repo
+## Deploy Workflow
+Every `git push origin main` from ~/clawd/ventures/tribune/site/ triggers a Cloudflare Pages auto-deploy. No build step needed — static files served directly.
 
-2) gh repo view brinkfoundry/fishingtribune --json nameWithOwner,isPrivate,url,defaultBranchRef
-Result:
-- repo exists
-- nameWithOwner: brinkfoundry/fishingtribune
-- url: https://github.com/brinkfoundry/fishingtribune
-- default branch: main
-- visibility: public
+## Git Push Commands
+```bash
+cd ~/clawd/ventures/tribune/site
+git add -A
+git commit -m "Your message"
+git push origin main
+```
 
-3) git remote -v
-Result:
-- origin git@github.com:brinkfoundry/fishingtribune.git (fetch)
-- origin git@github.com:brinkfoundry/fishingtribune.git (push)
-
-4) git status --short
-Result before commit:
-- modified index.html
-- modified styles.css
-- modified robots.txt
-- modified sitemap.xml
-- modified six article HTML pages
-
-5) git add -A
-Result:
-- staged rebuilt static site plus durable notes
-
-6) git commit -m "Deploy rebuilt FishingTribune static site"
-Result:
-- local commit created successfully
-- commit: 15c030f
-
-7) git push --force origin main
-Result:
-- push succeeded
-- remote updated from d5c1a13 to 15c030f
-
-Files now pushed for Cloudflare Pages
-- index.html
-- styles.css
-- robots.txt
-- sitemap.xml
-- best-fish-finders-under-200.html
-- best-fishing-kayaks-under-1000.html
-- best-kayak-trolling-motors-under-300.html
-- best-spinning-rods-for-bass.html
-- best-fly-fishing-rods-for-beginners.html
-- best-saltwater-spinning-rods-for-beginners.html
-- GITHUB_SETUP.md
-
-Cloudflare Pages connection target
-- GitHub repo: brinkfoundry/fishingtribune
-- Production branch: main
-- Framework preset: None
-- Build command: none
-- Build output directory: /
-
-Durable conclusion
-FishingTribune static site is pushed under the Foundry GitHub account and ready for Cloudflare Pages auto-deploy from GitHub.
+## Article Source Files
+Articles are generated from markdown in ~/clawd/ventures/tribune/articles/.
+Use REVENUE variants for 03/05/06. Run the site generator script to rebuild HTML after markdown changes.
