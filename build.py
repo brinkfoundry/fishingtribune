@@ -20,10 +20,18 @@ SITE_NAME = 'Fishing Tribune'
 PICKS = {
     '01': ('article-01-fish-finders-under-200.md', 'best-fish-finders-under-200'),
     '02': ('article-02-fishing-kayaks-under-1000.md', 'best-fishing-kayaks-under-1000'),
-    '03': ('article-03-trolling-motors-kayak-REWRITE.md', 'best-trolling-motors-for-kayak'),
+    '03': ('article-03-trolling-motors-kayak-REVENUE.md', 'best-trolling-motors-for-kayak'),
     '04': ('article-04-spinning-rods-bass.md', 'best-spinning-rods-bass-fishing'),
-    '05': ('article-05-fly-fishing-rods-REWRITE.md', 'best-fly-fishing-rods-beginners'),
-    '06': ('article-06-saltwater-spinning-FULL.md', 'best-saltwater-spinning-rods'),
+    '05': ('article-05-fly-fishing-rods-REVENUE.md', 'best-fly-fishing-rods-beginners'),
+    '06': ('article-06-saltwater-spinning-REVENUE.md', 'best-saltwater-spinning-rods'),
+    '07': ('article-07-fish-finders-under-500-kayak.md', 'best-fish-finders-under-500-kayak'),
+    '08': ('article-08-saltwater-fly-reels-under-300.md', 'best-saltwater-fly-reels-under-300'),
+    '09': ('article-09-best-bass-fishing-lures.md', 'best-bass-fishing-lures'),
+    '10': ('article-10-best-kayak-anchors.md', 'best-kayak-anchors'),
+    '11': ('article-11-best-tackle-boxes.md', 'best-tackle-boxes'),
+    '12': ('article-12-surf-fishing-rods.md', 'best-surf-fishing-rods'),
+    '13': ('article-13-best-polarized-fishing-sunglasses.md', 'best-polarized-fishing-sunglasses'),
+    '14': ('article-14-fishing-backpacks.md', 'best-fishing-backpacks'),
 }
 
 FTC_DISCLOSURE = (
@@ -185,27 +193,43 @@ def md_to_html(md: str) -> str:
 
 
 def extract_title(md: str, fallback: str) -> str:
-    for line in md.split('\n')[:15]:
+    # Try JSON-LD headline first (articles 9-13 format)
+    m = re.search(r'"headline"\s*:\s*"([^"]+)"', md[:2000])
+    if m:
+        return m.group(1).strip()
+    for line in md.split('\n')[:20]:
         line = line.strip()
         if line.startswith('# '):
             return line[2:].strip().strip('*')
-        # Also handle bold-title lines like **Title Here**
+        # Bold-title lines like **Title Here**
         m = re.match(r'^\*\*(.+)\*\*\s*$', line)
         if m:
             return m.group(1).strip()
-    # Try first non-empty non-meta line
-    for line in md.split('\n')[:10]:
+    # Try first non-empty non-meta line that looks like a title
+    for line in md.split('\n')[:20]:
         line = line.strip()
-        if line and not line.startswith('*') and not line.startswith('#') and len(line) > 20:
-            return line[:80]
+        if (line and not line.startswith('*') and not line.startswith('#')
+                and not line.startswith('{') and not line.startswith('FTC')
+                and not line.startswith('FishingTribune |')
+                and not line.startswith('Last Updated')
+                and len(line) > 20 and len(line) < 120):
+            return line[:100]
     return fallback
 
 
 def extract_excerpt(md: str, max_len: int = 160) -> str:
     """Extract first substantive paragraph for meta description."""
+    # Try JSON-LD description first
+    m = re.search(r'"description"\s*:\s*"([^"]+)"', md[:2000])
+    if m and len(m.group(1)) > 40:
+        desc = m.group(1).strip()
+        return desc[:max_len].rsplit(' ', 1)[0] + '...' if len(desc) > max_len else desc
     for line in md.split('\n'):
         line = line.strip()
-        if not line or line.startswith('#') or line.startswith('*By ') or line.startswith('*Target'):
+        if (not line or line.startswith('#') or line.startswith('*By ')
+                or line.startswith('*Target') or line.startswith('{')
+                or line.startswith('FTC') or line.startswith('FishingTribune |')
+                or line.startswith('Last Updated')):
             continue
         # Remove markdown formatting
         clean = re.sub(r'\*\*(.+?)\*\*', r'\1', line)
