@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
- <url><loc>https://fishingtribune.com/</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq></url>
- <url><loc>https://fishingtribune.com/best-fish-finders-under-200.html</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq></url>
- <url><loc>https://fishingtribune.com/best-fishing-kayaks-under-1000.html</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq></url>
- <url><loc>https://fishingtribune.com/best-kayak-trolling-motors-under-300.html</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq></url>
- <url><loc>https://fishingtribune.com/best-spinning-rods-for-bass.html</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq></url>
- <url><loc>https://fishingtribune.com/best-fly-fishing-rods-for-beginners.html</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq></url>
- <url><loc>https://fishingtribune.com/best-saltwater-spinning-rods-for-beginners.html</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq></url>
+<url><loc>https://fishingtribune.com/index.html</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+<url><loc>https://fishingtribune.com/best-fish-finders-under-200.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://fishingtribune.com/best-fishing-kayaks-under-1000.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://fishingtribune.com/best-kayak-trolling-motors-under-300.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://fishingtribune.com/best-spinning-rods-for-bass.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://fishingtribune.com/best-fly-fishing-rods-for-beginners.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://fishingtribune.com/best-saltwater-spinning-rods-for-beginners.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://fishingtribune.com/best-fish-finders-under-500-kayak.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://fishingtribune.com/best-saltwater-fly-reels-under-300.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://fishingtribune.com/best-ice-fishing-gear-for-beginners.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://fishingtribune.com/best-kayak-anchors.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://fishingtribune.com/best-tackle-boxes.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://fishingtribune.com/best-wading-boots.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://fishingtribune.com/best-polarized-fishing-sunglasses.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
