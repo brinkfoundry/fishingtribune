@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://fishingtribune.com/index.html</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-<url><loc>https://fishingtribune.com/best-fish-finders-under-200.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://fishingtribune.com/best-fishing-kayaks-under-1000.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://fishingtribune.com/best-kayak-trolling-motors-under-300.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://fishingtribune.com/best-spinning-rods-for-bass.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://fishingtribune.com/best-fly-fishing-rods-for-beginners.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://fishingtribune.com/best-saltwater-spinning-rods-for-beginners.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://fishingtribune.com/best-fish-finders-under-500-kayak.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://fishingtribune.com/best-saltwater-fly-reels-under-300.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://fishingtribune.com/best-ice-fishing-gear-for-beginners.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://fishingtribune.com/best-kayak-anchors.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://fishingtribune.com/best-tackle-boxes.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://fishingtribune.com/best-wading-boots.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://fishingtribune.com/best-polarized-fishing-sunglasses.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://fishingtribune.com/</loc><lastmod>2026-03-29</lastmod><priority>1.0</priority></url>
+  <url><loc>https://fishingtribune.com/affiliate-disclosure.html</loc><priority>0.3</priority></url>
+  <url><loc>https://fishingtribune.com/articles/best-fish-finders-under-200.html</loc><lastmod>2026-03-29</lastmod><priority>0.8</priority></url>
+  <url><loc>https://fishingtribune.com/articles/best-fishing-kayaks-under-1000.html</loc><lastmod>2026-03-29</lastmod><priority>0.8</priority></url>
+  <url><loc>https://fishingtribune.com/articles/best-trolling-motors-for-kayak.html</loc><lastmod>2026-03-29</lastmod><priority>0.8</priority></url>
+  <url><loc>https://fishingtribune.com/articles/best-spinning-rods-bass-fishing.html</loc><lastmod>2026-03-29</lastmod><priority>0.8</priority></url>
+  <url><loc>https://fishingtribune.com/articles/best-fly-fishing-rods-beginners.html</loc><lastmod>2026-03-29</lastmod><priority>0.8</priority></url>
+  <url><loc>https://fishingtribune.com/articles/best-saltwater-spinning-rods.html</loc><lastmod>2026-03-29</lastmod><priority>0.8</priority></url>
+  <url><loc>https://fishingtribune.com/articles/best-fish-finders-under-500-kayak.html</loc><lastmod>2026-03-29</lastmod><priority>0.8</priority></url>
+  <url><loc>https://fishingtribune.com/articles/best-saltwater-fly-reels-under-300.html</loc><lastmod>2026-03-29</lastmod><priority>0.8</priority></url>
+  <url><loc>https://fishingtribune.com/articles/best-bass-fishing-lures.html</loc><lastmod>2026-03-29</lastmod><priority>0.8</priority></url>
+  <url><loc>https://fishingtribune.com/articles/best-kayak-anchors.html</loc><lastmod>2026-03-29</lastmod><priority>0.8</priority></url>
+  <url><loc>https://fishingtribune.com/articles/best-tackle-boxes.html</loc><lastmod>2026-03-29</lastmod><priority>0.8</priority></url>
+  <url><loc>https://fishingtribune.com/articles/best-surf-fishing-rods.html</loc><lastmod>2026-03-29</lastmod><priority>0.8</priority></url>
+  <url><loc>https://fishingtribune.com/articles/best-polarized-fishing-sunglasses.html</loc><lastmod>2026-03-29</lastmod><priority>0.8</priority></url>
+  <url><loc>https://fishingtribune.com/articles/best-fishing-backpacks.html</loc><lastmod>2026-03-29</lastmod><priority>0.8</priority></url>
 </urlset>
