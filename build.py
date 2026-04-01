@@ -21,7 +21,8 @@ ARTICLES_DIR.mkdir(exist_ok=True)
 BASE_URL = 'https://fishingtribune.com'
 AFFILIATE_TAG = 'fishingtribun-20'
 SITE_NAME = 'Fishing Tribune'
-BUILD_DATE = datetime.now().strftime('%Y-%m-%d')
+BUILD_DATE_SHORT = datetime.now().strftime('%Y-%m-%d')
+BUILD_DATE = datetime.now().strftime('%B %-d, %Y')  # "April 1, 2026"
 
 # ── Article picks (manually curated, highest priority) ───────────
 PICKS = {
@@ -466,7 +467,7 @@ def article_page(title, body_html, slug, excerpt, date, category, faqs, related,
         "@context": "https://schema.org", "@type": "Article",
         "headline": title, "description": excerpt, "image": hero,
         "url": f"{BASE_URL}/articles/{slug}.html",
-        "datePublished": date, "dateModified": BUILD_DATE,
+        "datePublished": date, "dateModified": BUILD_DATE_SHORT,
         "author": {"@type": "Organization", "name": f"{SITE_NAME} Editorial"},
         "publisher": {"@type": "Organization", "name": SITE_NAME, "url": BASE_URL},
     }) + '</script>'
@@ -607,13 +608,16 @@ def error_404_page():
 
 
 def build_sitemap(articles):
-    urls = [f'  <url><loc>{BASE_URL}/</loc><lastmod>{BUILD_DATE}</lastmod><priority>1.0</priority></url>',
-            f'  <url><loc>{BASE_URL}/about.html</loc><lastmod>{BUILD_DATE}</lastmod><priority>0.5</priority></url>',
-            f'  <url><loc>{BASE_URL}/affiliate-disclosure.html</loc><lastmod>{BUILD_DATE}</lastmod><priority>0.3</priority></url>']
+    d = BUILD_DATE_SHORT
+    urls = [f'  <url><loc>{BASE_URL}/</loc><lastmod>{d}</lastmod><priority>1.0</priority></url>',
+            f'  <url><loc>{BASE_URL}/about.html</loc><lastmod>{d}</lastmod><priority>0.5</priority></url>',
+            f'  <url><loc>{BASE_URL}/affiliate-disclosure.html</loc><lastmod>{d}</lastmod><priority>0.3</priority></url>']
     for cid in CATEGORIES:
-        urls.append(f'  <url><loc>{BASE_URL}/categories/{cid}.html</loc><lastmod>{BUILD_DATE}</lastmod><priority>0.6</priority></url>')
+        urls.append(f'  <url><loc>{BASE_URL}/categories/{cid}.html</loc><lastmod>{d}</lastmod><priority>0.6</priority></url>')
     for a in articles:
-        urls.append(f'  <url><loc>{BASE_URL}/articles/{a["slug"]}.html</loc><lastmod>{BUILD_DATE}</lastmod><priority>0.8</priority></url>')
+        # Skip test/generic slugs
+        if a['slug'] in ('article', 'article-v2'): continue
+        urls.append(f'  <url><loc>{BASE_URL}/articles/{a["slug"]}.html</loc><lastmod>{d}</lastmod><priority>0.8</priority></url>')
     return f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{chr(10).join(urls)}\n</urlset>'
 
 
@@ -674,6 +678,7 @@ def main():
         if len(md.split()) < 1000: skipped += 1; continue
         if not re.search(r'^# .+', md, re.MULTILINE): skipped += 1; continue
         slug = slug_from_filename(fname)
+        if slug in ('article', 'article-v2', ''): skipped += 1; continue
         if slug in seen_slugs: slug += '-v2'
         if slug in seen_slugs: skipped += 1; continue
         title = extract_title(md, slug.replace('-', ' ').title())
