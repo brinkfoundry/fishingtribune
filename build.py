@@ -77,26 +77,26 @@ CATEGORIES = {
     'accessories': {'name': 'Gear & Accessories', 'keywords': ['backpack', 'sunglasses', 'wader', 'clothing', 'glove', 'net', 'cooler', 'chair', 'umbrella', 'hat', 'scale', 'bucket', 'bag', 'cleaning', 'boot']},
 }
 
-# Unsplash images — curated IDs for reliable loading
-# Format: https://images.unsplash.com/photo-{ID}?w={w}&h={h}&fit=crop&auto=format&q=75
-HERO_IMAGES = {
-    'electronics': '1544551763-46a013bb70d5',  # fishing lake
-    'rods': '1559570278-eb8d71d06403',           # fishing rod sunset
-    'reels': '1559570278-eb8d71d06403',          # same
-    'tackle': '1585510589324-40dc63e1e2c9',      # tackle close up
-    'kayaks': '1572025442646-866d16c84a54',      # kayak water
-    'accessories': '1504309092620-4d0ec726efa4',  # outdoor gear
-    'default': '1544551763-46a013bb70d5',
+# Image system: Picsum (Lorem Picsum) with deterministic seeds per article.
+# Each slug hashes to a stable seed so the same article always gets the same photo.
+# Picsum serves high-quality landscape/nature photos — reliable, fast CDN, no API keys.
+# Category-specific seeds chosen to show water/nature scenes.
+CATEGORY_SEEDS = {
+    'electronics': [100, 142, 164, 193],  # water/lake scenes
+    'rods': [110, 156, 169, 188],          # nature/outdoor scenes
+    'reels': [120, 137, 173, 195],         # nature scenes
+    'tackle': [130, 148, 177, 197],        # close-up style scenes
+    'kayaks': [101, 152, 165, 190],        # water scenes
+    'accessories': [115, 145, 170, 185],   # outdoor/gear scenes
+    'default': [100, 142, 164, 193],
 }
-SECTION_IMAGES = [
-    ('1500463959177-e0869687df26', 'Angler casting on a calm lake at dawn'),
-    ('1559570278-eb8d71d06403', 'Fishing rod silhouette against sunset sky'),
-    ('1544551763-46a013bb70d5', 'Peaceful fishing on a mountain lake'),
-    ('1504309092620-4d0ec726efa4', 'Fishing gear ready for the water'),
-    ('1572025442646-866d16c84a54', 'Kayak on clear blue water'),
-    ('1585510589324-40dc63e1e2c9', 'Close-up of fishing tackle and lures'),
+SECTION_ALTS = [
+    'Early morning on the water — the best time to fish',
+    'Calm waters and clear skies — perfect fishing conditions',
+    'The right gear makes all the difference on the water',
+    'Heading out for a day of fishing',
 ]
-HOMEPAGE_HERO = '1500463959177-e0869687df26'
+HOMEPAGE_SEED = 100  # stable water/nature scene
 
 FTC_DISCLOSURE = (
     'Fishing Tribune is reader-supported. When you buy through links on our site, '
@@ -113,18 +113,32 @@ def esc(s: str) -> str:
     return html.escape(str(s))
 
 
-def unsplash(photo_id: str, w: int = 1200, h: int = 600) -> str:
-    return f'https://images.unsplash.com/photo-{photo_id}?w={w}&h={h}&fit=crop&auto=format&q=75'
+def picsum(seed: int, w: int = 1200, h: int = 600) -> str:
+    """Deterministic image from Lorem Picsum. Same seed = same photo always."""
+    return f'https://picsum.photos/seed/{seed}/{w}/{h}'
+
+
+def img_for_slug(slug: str, cat: str, w: int = 1200, h: int = 600) -> str:
+    """Generate a stable image URL for an article based on slug hash + category seeds."""
+    slug_hash = int(hashlib.md5(slug.encode()).hexdigest()[:8], 16)
+    seeds = CATEGORY_SEEDS.get(cat, CATEGORY_SEEDS['default'])
+    seed = seeds[slug_hash % len(seeds)]
+    return picsum(seed, w, h)
 
 
 def img_for_category(cat: str, w: int = 1200, h: int = 600) -> str:
-    return unsplash(HERO_IMAGES.get(cat, HERO_IMAGES['default']), w, h)
+    """Category hero image — uses first seed for the category."""
+    seeds = CATEGORY_SEEDS.get(cat, CATEGORY_SEEDS['default'])
+    return picsum(seeds[0], w, h)
 
 
-def section_img(index: int) -> tuple:
+def section_img(index: int, slug: str = '') -> tuple:
     """Return (url, alt) for the i-th section image."""
-    photo_id, alt = SECTION_IMAGES[index % len(SECTION_IMAGES)]
-    return unsplash(photo_id, 900, 400), alt
+    # Use a different seed offset per article so sections vary
+    slug_offset = int(hashlib.md5(slug.encode()).hexdigest()[:4], 16) if slug else 0
+    seed = 200 + (index * 37 + slug_offset) % 300
+    alt = SECTION_ALTS[index % len(SECTION_ALTS)]
+    return picsum(seed, 900, 400), alt
 
 
 def classify_article(title: str, slug: str) -> str:
@@ -175,7 +189,7 @@ def extract_faqs(md: str) -> list:
 
 # ── Markdown to HTML with section images ─────────────────────────
 
-def md_to_html(md: str, insert_images: bool = True) -> str:
+def md_to_html(md: str, insert_images: bool = True, current_slug: str = '') -> str:
     lines = md.split('\n')
     out = []
     in_ul = in_ol = in_table = in_blockquote = False
@@ -226,7 +240,7 @@ def md_to_html(md: str, insert_images: bool = True) -> str:
         if not insert_images:
             return
         if para_count > 0 and para_count % 4 == 0 and img_index < 3:
-            url, alt = section_img(img_index)
+            url, alt = section_img(img_index, current_slug)
             align = 'left' if img_index % 2 == 0 else ''
             cls = f' {align}' if align else ''
             out.append(f'<figure class="section-image{cls}"><img src="{url}" alt="{esc(alt)}" loading="lazy" width="900" height="400"><figcaption>{esc(alt)}</figcaption></figure>')
@@ -341,11 +355,11 @@ def _head(title, description, canonical, og_type='website', extra_meta='', extra
 <meta property="og:description" content="{esc(description)}">
 <meta property="og:url" content="{canonical}">
 <meta property="og:site_name" content="{SITE_NAME}">
-<meta property="og:image" content="{unsplash(HOMEPAGE_HERO, 1200, 630)}">
+<meta property="og:image" content="{picsum(HOMEPAGE_SEED, 1200, 630)}">
 <meta name="twitter:card" content="summary_large_image">
 {extra_meta}
 {extra_schema}
-<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="preconnect" href="https://picsum.photos">
 <link rel="preconnect" href="https://www.amazon.com">
 <link rel="alternate" type="application/rss+xml" title="{SITE_NAME}" href="{BASE_URL}/articles.xml">
 {ga}
@@ -408,7 +422,7 @@ def _footer():
 
 def article_page(title, body_html, slug, excerpt, date, category, faqs, related):
     cat_name = CATEGORIES.get(category, {}).get('name', 'Gear')
-    hero_url = img_for_category(category, 1200, 500)
+    hero_url = img_for_slug(slug, category, 1200, 500)
 
     breadcrumb_schema = json.dumps({"@context": "https://schema.org", "@type": "BreadcrumbList",
         "itemListElement": [
@@ -434,7 +448,7 @@ def article_page(title, body_html, slug, excerpt, date, category, faqs, related)
     related_html = ''
     if related:
         cards = '\n'.join(f'''      <div class="related-card">
-        <div class="related-img"><img src="{img_for_category(r.get('category','default'), 400, 200)}" alt="{esc(r['title'])}" loading="lazy" width="400" height="200"></div>
+        <div class="related-img"><img src="{img_for_slug(r['slug'], r.get('category','default'), 400, 200)}" alt="{esc(r['title'])}" loading="lazy" width="400" height="200"></div>
         <h3><a href="/articles/{r['slug']}.html">{esc(r['title'])}</a></h3>
       </div>''' for r in related)
         related_html = f'''
@@ -487,7 +501,7 @@ def index_page(articles):
     cards = []
     for a in articles:
         cat_name = CATEGORIES.get(a.get('category', ''), {}).get('name', 'Gear')
-        img_url = img_for_category(a.get('category', 'default'), 640, 360)
+        img_url = img_for_slug(a['slug'], a.get('category', 'default'), 640, 360)
         cards.append(f'''    <article class="article-card">
       <div class="card-image">
         <img src="{img_url}" alt="{esc(a['title'])}" loading="lazy" width="640" height="360">
@@ -523,7 +537,7 @@ def index_page(articles):
         extra_schema=f'<script type="application/ld+json">{schema}</script>')}
 {_header('home')}
 <section class="hero-banner">
-  <img src="{unsplash(HOMEPAGE_HERO, 1400, 600)}" alt="Fishing at sunrise" loading="eager" width="1400" height="600">
+  <img src="{picsum(HOMEPAGE_SEED, 1400, 600)}" alt="Fishing at sunrise" loading="eager" width="1400" height="600">
   <div class="overlay"></div>
   <div class="hero-content">
     <h1>Expert Fishing Gear Reviews &amp; Buyer's Guides</h1>
@@ -552,7 +566,7 @@ def category_page(cat_id, cat_info, articles):
     img_url = img_for_category(cat_id, 1200, 480)
     cards = []
     for a in cat_articles:
-        ci = img_for_category(a.get('category', 'default'), 640, 360)
+        ci = img_for_slug(a['slug'], a.get('category', 'default'), 640, 360)
         cards.append(f'''    <article class="article-card">
       <div class="card-image"><img src="{ci}" alt="{esc(a['title'])}" loading="lazy" width="640" height="360"></div>
       <div class="card-body">
@@ -584,7 +598,7 @@ def category_page(cat_id, cat_info, articles):
 
 
 def about_page():
-    hero = unsplash(HOMEPAGE_HERO, 1200, 480)
+    hero = picsum(HOMEPAGE_SEED, 1200, 480)
     return f'''{_head(f"About {SITE_NAME}",
         f"{SITE_NAME} is an independent fishing gear review site built by anglers, for anglers.",
         f"{BASE_URL}/about.html")}
@@ -684,21 +698,66 @@ def main():
     articles = []
     date = '2026-03-29'
     skipped = 0
+    seen_slugs = set()
 
-    print(f'  Building {SITE_NAME} ({len(PICKS)} articles)...\n')
+    # Filename patterns to skip
+    SKIP_PATTERNS = {'critique', 'notes', 'CLEAN', 'FULL', 'REVENUE', 'REWRITE', 'PIPELINE'}
+
+    def should_skip_file(fname: str, md: str) -> str | None:
+        """Return skip reason or None if publishable."""
+        # Skip by filename pattern
+        for pat in SKIP_PATTERNS:
+            if pat in fname:
+                return f'filename contains {pat}'
+        # Skip internal docs by first 5 lines content
+        first_lines = '\n'.join(md.split('\n')[:5])
+        if 'BRAND DNA' in first_lines:
+            return 'BRAND DNA doc'
+        if first_lines.strip().startswith('title:'):
+            return 'raw frontmatter'
+        return None
+
+    def slug_from_filename(fname: str) -> str:
+        """Generate a URL slug from a markdown filename."""
+        s = fname.replace('.md', '')
+        # Strip article-NN- prefix
+        s = re.sub(r'^article-\d+-', '', s)
+        # Strip trailing -article (generic names)
+        s = re.sub(r'-article$', '', s)
+        # Clean
+        s = re.sub(r'[^a-z0-9-]', '-', s.lower())
+        s = re.sub(r'-+', '-', s).strip('-')
+        return s or 'article'
+
+    def strip_raw_metadata(md: str) -> str:
+        """Remove raw JSON-LD, frontmatter, and metadata lines from article body."""
+        cleaned = []
+        for line in md.split('\n'):
+            stripped = line.strip()
+            if stripped.startswith('{"@context"'):
+                continue
+            if stripped.startswith('title:'):
+                continue
+            if stripped.startswith('```json') or stripped.startswith('```'):
+                # Skip JSON-LD code blocks
+                continue
+            cleaned.append(line)
+        return '\n'.join(cleaned)
+
+    # Phase 1a: Process PICKS (manually curated, highest priority)
+    print(f'  Scanning articles...\n')
 
     for num in sorted(PICKS.keys(), key=lambda x: int(x)):
         fname, slug = PICKS[num]
         src = ARTICLES_SRC / fname
         if not src.exists():
-            print(f'  SKIP: {fname} not found')
             skipped += 1
             continue
         md = src.read_bytes().replace(b'\x00', b'').decode('utf-8', errors='replace')
         if len(md.split()) < 500:
-            print(f'  SKIP: {fname} too short ({len(md.split())} words)')
             skipped += 1
             continue
+        md = strip_raw_metadata(md)
         title = extract_title(md, slug.replace('-', ' ').title())
         excerpt = extract_excerpt(md)
         words = len(md.split())
@@ -708,10 +767,52 @@ def main():
             'num': num, 'slug': slug, 'title': title, 'excerpt': excerpt,
             'words': words, 'category': category, 'faqs': faqs, 'md': md,
         })
+        seen_slugs.add(slug)
+
+    # Phase 1b: Auto-discover remaining .md files not in PICKS
+    picks_filenames = {v[0] for v in PICKS.values()}
+    for src in sorted(ARTICLES_SRC.glob('article-*.md')):
+        fname = src.name
+        if fname in picks_filenames:
+            continue  # Already handled by PICKS
+        md = src.read_bytes().replace(b'\x00', b'').decode('utf-8', errors='replace')
+        skip_reason = should_skip_file(fname, md)
+        if skip_reason:
+            skipped += 1
+            continue
+        words = len(md.split())
+        if words < 1000:
+            skipped += 1
+            continue
+        # Must have an H1 heading
+        if not re.search(r'^# .+', md, re.MULTILINE):
+            skipped += 1
+            continue
+        md = strip_raw_metadata(md)
+        slug = slug_from_filename(fname)
+        # Deduplicate slugs (prefer PICKS version)
+        if slug in seen_slugs:
+            slug = slug + '-v2'
+        if slug in seen_slugs:
+            skipped += 1
+            continue
+        title = extract_title(md, slug.replace('-', ' ').title())
+        excerpt = extract_excerpt(md)
+        category = classify_article(title, slug)
+        faqs = extract_faqs(md)
+        num = re.search(r'article-(\d+)', fname)
+        articles.append({
+            'num': num.group(1) if num else '99', 'slug': slug, 'title': title,
+            'excerpt': excerpt, 'words': words, 'category': category,
+            'faqs': faqs, 'md': md,
+        })
+        seen_slugs.add(slug)
+
+    print(f'  Found {len(articles)} publishable articles, {skipped} skipped\n')
 
     # Generate article pages
     for a in articles:
-        body_html = md_to_html(a['md'])
+        body_html = md_to_html(a['md'], current_slug=a['slug'])
         related = find_related(a['slug'], articles)
         page = article_page(a['title'], body_html, a['slug'], a['excerpt'],
                             date, a['category'], a['faqs'], related)
