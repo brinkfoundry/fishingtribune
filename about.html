@@ -13,12 +13,12 @@
 <meta property="og:description" content="Fishing Tribune is an independent fishing gear review site built by anglers, for anglers.">
 <meta property="og:url" content="https://fishingtribune.com/about.html">
 <meta property="og:site_name" content="Fishing Tribune">
-<meta property="og:image" content="https://fishingtribune.com/og-default.png">
+<meta property="og:image" content="https://images.unsplash.com/photo-1500463959177-e0869687df26?w=1200&h=630&fit=crop&auto=format&q=75">
 <meta name="twitter:card" content="summary_large_image">
 
 
+<link rel="preconnect" href="https://images.unsplash.com">
 <link rel="preconnect" href="https://www.amazon.com">
-<link rel="preconnect" href="https://www.googletagmanager.com">
 <link rel="alternate" type="application/rss+xml" title="Fishing Tribune" href="https://fishingtribune.com/articles.xml">
 
 <link rel="stylesheet" href="/style.css">
@@ -27,26 +27,45 @@
 <header class="site-header">
   <div class="container wide">
     <div class="site-title"><a href="/"><span class="logo-icon">FT</span> Fishing <span>Tribune</span></a></div>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     <nav class="site-nav">
       <a href="/">Home</a>
-      <a href="/about.html" class="active">About</a>
+      <a href="/about.html">About</a>
       <a href="/affiliate-disclosure.html">Disclosure</a>
     </nav>
   </div>
 </header>
 <main class="container">
-  <div class="page-header"><h1>About Fishing Tribune</h1></div>
+  <div class="category-hero" style="margin-top:24px">
+    <img src="https://images.unsplash.com/photo-1500463959177-e0869687df26?w=1200&h=480&fit=crop&auto=format&q=75" alt="Fishing at sunrise" loading="lazy" width="1200" height="480">
+    <div class="overlay"></div>
+    <h1>About Fishing Tribune</h1>
+  </div>
   <div class="article-body">
-    <p><strong>Fishing Tribune</strong> is an independent fishing gear review site built by anglers, for anglers. We test, compare, and honestly review fishing equipment so you can spend less time researching and more time on the water.</p>
-    <h2>Our Mission</h2>
-    <p>The fishing gear market is flooded with paid placements and fake reviews. We started Fishing Tribune because we were tired of buying gear based on hype, only to be disappointed on the water. Every review on this site is based on real specifications, real user feedback, and real-world performance data.</p>
-    <h2>How We Review</h2>
-    <p>For every product category, we analyze specifications, cross-reference user reviews from multiple sources, compare pricing across retailers, and assess long-term durability. When possible, we test products ourselves. When we can't, we rely on verified purchaser feedback and expert angler opinions.</p>
-    <h2>How We Make Money</h2>
-    <p>Fishing Tribune is reader-supported. When you click our links and make a purchase, we may earn a small affiliate commission at no extra cost to you. This revenue keeps the site running and lets us continue producing honest reviews. No brand pays for placement. No manufacturer sponsors our rankings. See our <a href="/affiliate-disclosure.html">full affiliate disclosure</a> for details.</p>
+    <h2>Why We Exist</h2>
+    <p>The fishing gear market is flooded with paid placements, fake reviews, and "best of" lists written by people who've never held a rod. We started Fishing Tribune because we were tired of buying gear based on hype, only to be disappointed on the water.</p>
+    <p><strong>Every review on this site is based on real specifications, real user feedback, and real-world performance data.</strong> Not press releases. Not manufacturer talking points.</p>
+
+    <h2>Our Review Methodology</h2>
+    <p>For every product category, our editorial team follows a rigorous process:</p>
+    <ul>
+      <li><strong>Market analysis</strong> — We survey 50+ products per category to narrow the field to genuine contenders</li>
+      <li><strong>Specification comparison</strong> — Side-by-side technical analysis using manufacturer data and independent measurements</li>
+      <li><strong>User review aggregation</strong> — We cross-reference feedback from Amazon, Bass Pro, Cabela's, fishing forums, and YouTube to find patterns</li>
+      <li><strong>Expert consultation</strong> — We consult tournament anglers, guides, and tackle shop owners for pro-level perspective</li>
+      <li><strong>Value assessment</strong> — We evaluate performance per dollar, not just absolute quality. A $50 rod that performs at 80% of a $200 rod earns our recommendation</li>
+    </ul>
+
+    <h2>Editorial Standards</h2>
+    <p>No brand pays for placement. No manufacturer sponsors our rankings. If a product is bad, we say so. If a cheap option outperforms an expensive one, we say that too. Our recommendations reflect what we'd actually buy with our own money.</p>
+    <p>We update our reviews quarterly to reflect price changes, new product releases, and updated user feedback. Every article displays its last-updated date prominently.</p>
+
     <h2>Our Team</h2>
-    <p>Our editorial team combines 50+ years of angling experience across freshwater bass fishing, saltwater fly fishing, kayak fishing, and tournament competition. We fish rivers, lakes, oceans, and everything in between.</p>
-    <p>Questions? Reach us at <strong>hello@fishingtribune.com</strong></p>
+    <p>Our editorial team combines 50+ years of angling experience across freshwater bass fishing, saltwater fly fishing, kayak fishing, ice fishing, and tournament competition. We fish rivers, lakes, oceans, and everything in between — from farm ponds in the Midwest to flats in the Florida Keys.</p>
+
+    <h2>How We Make Money</h2>
+    <p>Fishing Tribune is reader-supported. When you click our links and make a purchase, we may earn a small affiliate commission at no extra cost to you. This revenue keeps the site running and allows us to continue producing honest, independent reviews. See our <a href="/affiliate-disclosure.html">full affiliate disclosure</a> for details.</p>
+    <p>Questions or feedback? Reach us at <strong>hello@fishingtribune.com</strong></p>
   </div>
 </main>
 <footer class="site-footer">
@@ -83,5 +102,10 @@
     </div>
   </div>
 </footer>
+<script>
+document.querySelector('.hamburger')?.addEventListener('click',function(){
+  document.querySelector('.site-nav').classList.toggle('open');
+});
+</script>
 </body>
 </html>

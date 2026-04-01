@@ -13,12 +13,12 @@
 <meta property="og:description" content="The page you&#x27;re looking for doesn&#x27;t exist.">
 <meta property="og:url" content="https://fishingtribune.com/404.html">
 <meta property="og:site_name" content="Fishing Tribune">
-<meta property="og:image" content="https://fishingtribune.com/og-default.png">
+<meta property="og:image" content="https://images.unsplash.com/photo-1500463959177-e0869687df26?w=1200&h=630&fit=crop&auto=format&q=75">
 <meta name="twitter:card" content="summary_large_image">
 
 
+<link rel="preconnect" href="https://images.unsplash.com">
 <link rel="preconnect" href="https://www.amazon.com">
-<link rel="preconnect" href="https://www.googletagmanager.com">
 <link rel="alternate" type="application/rss+xml" title="Fishing Tribune" href="https://fishingtribune.com/articles.xml">
 
 <link rel="stylesheet" href="/style.css">
@@ -27,6 +27,7 @@
 <header class="site-header">
   <div class="container wide">
     <div class="site-title"><a href="/"><span class="logo-icon">FT</span> Fishing <span>Tribune</span></a></div>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     <nav class="site-nav">
       <a href="/">Home</a>
       <a href="/about.html">About</a>
@@ -75,5 +76,10 @@
     </div>
   </div>
 </footer>
+<script>
+document.querySelector('.hamburger')?.addEventListener('click',function(){
+  document.querySelector('.site-nav').classList.toggle('open');
+});
+</script>
 </body>
 </html>
