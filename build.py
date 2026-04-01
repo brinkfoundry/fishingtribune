@@ -77,26 +77,34 @@ CATEGORIES = {
     'accessories': {'name': 'Gear & Accessories', 'keywords': ['backpack', 'sunglasses', 'wader', 'clothing', 'glove', 'net', 'cooler', 'chair', 'umbrella', 'hat', 'scale', 'bucket', 'bag', 'cleaning', 'boot']},
 }
 
-# Image system: Picsum (Lorem Picsum) with deterministic seeds per article.
-# Each slug hashes to a stable seed so the same article always gets the same photo.
-# Picsum serves high-quality landscape/nature photos — reliable, fast CDN, no API keys.
-# Category-specific seeds chosen to show water/nature scenes.
-CATEGORY_SEEDS = {
-    'electronics': [100, 142, 164, 193],  # water/lake scenes
-    'rods': [110, 156, 169, 188],          # nature/outdoor scenes
-    'reels': [120, 137, 173, 195],         # nature scenes
-    'tackle': [130, 148, 177, 197],        # close-up style scenes
-    'kayaks': [101, 152, 165, 190],        # water scenes
-    'accessories': [115, 145, 170, 185],   # outdoor/gear scenes
-    'default': [100, 142, 164, 193],
-}
+# Curated Unsplash photos — every image is fishing/water/nature, verified 200 OK.
+# URL format: https://images.unsplash.com/{id}?w=W&h=H&fit=crop&auto=format&q=75
+HERO_PHOTOS = [
+    'photo-1500463959177-e0869687df26',  # fishing at sunset lake
+    'photo-1504309092620-4d0ec726efa4',  # fly fishing river
+    'photo-1516962126636-27ad087061cc',  # fishing boat ocean
+    'photo-1559570278-eb8d71d06403',     # fishing rod sunset
+    'photo-1517824806704-9040b037703b',  # lake landscape
+    'photo-1470770903676-69b98201ea1c',  # lake mountains
+    'photo-1501785888041-af3ef285b470',  # water landscape
+    'photo-1542362567-b07e54358753',     # boat on water
+]
+SECTION_PHOTOS = [
+    'photo-1544551763-46a013bb70d5',     # fishing tackle
+    'photo-1542362567-b07e54358753',     # boat on water
+    'photo-1501446529957-6226bd447c46',  # sunrise water
+    'photo-1476514525535-07fb3b4ae5f1',  # lake nature
+    'photo-1504280390367-361c6d9f38f4',  # outdoor nature
+    'photo-1470770903676-69b98201ea1c',  # lake mountains
+    'photo-1500463959177-e0869687df26',  # fishing at sunset
+    'photo-1517824806704-9040b037703b',  # lake landscape
+]
 SECTION_ALTS = [
     'Early morning on the water — the best time to fish',
     'Calm waters and clear skies — perfect fishing conditions',
     'The right gear makes all the difference on the water',
     'Heading out for a day of fishing',
 ]
-HOMEPAGE_SEED = 100  # stable water/nature scene
 
 FTC_DISCLOSURE = (
     'Fishing Tribune is reader-supported. When you buy through links on our site, '
@@ -113,32 +121,31 @@ def esc(s: str) -> str:
     return html.escape(str(s))
 
 
-def picsum(seed: int, w: int = 1200, h: int = 600) -> str:
-    """Deterministic image from Lorem Picsum. Same seed = same photo always."""
-    return f'https://picsum.photos/seed/{seed}/{w}/{h}'
+def unsplash_url(photo_id: str, w: int = 1200, h: int = 600) -> str:
+    """Build Unsplash CDN URL from a curated photo ID."""
+    return f'https://images.unsplash.com/{photo_id}?w={w}&h={h}&fit=crop&auto=format&q=75'
 
 
-def img_for_slug(slug: str, cat: str, w: int = 1200, h: int = 600) -> str:
-    """Generate a stable image URL for an article based on slug hash + category seeds."""
+def img_for_slug(slug: str, cat: str = '', w: int = 1200, h: int = 600) -> str:
+    """Deterministic hero image for an article. Same slug = same photo always."""
     slug_hash = int(hashlib.md5(slug.encode()).hexdigest()[:8], 16)
-    seeds = CATEGORY_SEEDS.get(cat, CATEGORY_SEEDS['default'])
-    seed = seeds[slug_hash % len(seeds)]
-    return picsum(seed, w, h)
+    photo_id = HERO_PHOTOS[slug_hash % len(HERO_PHOTOS)]
+    return unsplash_url(photo_id, w, h)
 
 
 def img_for_category(cat: str, w: int = 1200, h: int = 600) -> str:
-    """Category hero image — uses first seed for the category."""
-    seeds = CATEGORY_SEEDS.get(cat, CATEGORY_SEEDS['default'])
-    return picsum(seeds[0], w, h)
+    """Category hero image — picks from hero photos based on category name hash."""
+    cat_hash = int(hashlib.md5(cat.encode()).hexdigest()[:8], 16)
+    photo_id = HERO_PHOTOS[cat_hash % len(HERO_PHOTOS)]
+    return unsplash_url(photo_id, w, h)
 
 
 def section_img(index: int, slug: str = '') -> tuple:
-    """Return (url, alt) for the i-th section image."""
-    # Use a different seed offset per article so sections vary
+    """Return (url, alt) for the i-th section image. Varies per article."""
     slug_offset = int(hashlib.md5(slug.encode()).hexdigest()[:4], 16) if slug else 0
-    seed = 200 + (index * 37 + slug_offset) % 300
+    photo_id = SECTION_PHOTOS[(index + slug_offset) % len(SECTION_PHOTOS)]
     alt = SECTION_ALTS[index % len(SECTION_ALTS)]
-    return picsum(seed, 900, 400), alt
+    return unsplash_url(photo_id, 900, 400), alt
 
 
 def classify_article(title: str, slug: str) -> str:
@@ -355,11 +362,11 @@ def _head(title, description, canonical, og_type='website', extra_meta='', extra
 <meta property="og:description" content="{esc(description)}">
 <meta property="og:url" content="{canonical}">
 <meta property="og:site_name" content="{SITE_NAME}">
-<meta property="og:image" content="{picsum(HOMEPAGE_SEED, 1200, 630)}">
+<meta property="og:image" content="{unsplash_url(HERO_PHOTOS[0], 1200, 630)}">
 <meta name="twitter:card" content="summary_large_image">
 {extra_meta}
 {extra_schema}
-<link rel="preconnect" href="https://picsum.photos">
+<link rel="preconnect" href="https://images.unsplash.com">
 <link rel="preconnect" href="https://www.amazon.com">
 <link rel="alternate" type="application/rss+xml" title="{SITE_NAME}" href="{BASE_URL}/articles.xml">
 {ga}
@@ -537,7 +544,7 @@ def index_page(articles):
         extra_schema=f'<script type="application/ld+json">{schema}</script>')}
 {_header('home')}
 <section class="hero-banner">
-  <img src="{picsum(HOMEPAGE_SEED, 1400, 600)}" alt="Fishing at sunrise" loading="eager" width="1400" height="600">
+  <img src="{unsplash_url(HERO_PHOTOS[0], 1400, 600)}" alt="Fishing at sunrise" loading="eager" width="1400" height="600">
   <div class="overlay"></div>
   <div class="hero-content">
     <h1>Expert Fishing Gear Reviews &amp; Buyer's Guides</h1>
@@ -598,7 +605,7 @@ def category_page(cat_id, cat_info, articles):
 
 
 def about_page():
-    hero = picsum(HOMEPAGE_SEED, 1200, 480)
+    hero = unsplash_url(HERO_PHOTOS[0], 1200, 480)
     return f'''{_head(f"About {SITE_NAME}",
         f"{SITE_NAME} is an independent fishing gear review site built by anglers, for anglers.",
         f"{BASE_URL}/about.html")}
