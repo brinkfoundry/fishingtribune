@@ -1,4 +1,4 @@
-*Affiliate Disclosure: Fishing Tribune earns a commission on qualifying purchases made through links in this article at no extra cost to you. We only recommend gear we've fished with or researched thoroughly. Your price doesn't change.*
+*Affiliate Disclosure: Fishing Tribune earns a commission on qualifying purchases made through links in this article at no extra cost to you. We only recommend gear we'd actually spool up ourselves.*
 
 ---
 
@@ -6,8 +6,8 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Best Trolling Reels Under $200 (2026): Five Reels That Actually Hold Up",
-  "description": "Expert reviews of the best trolling reels under $200. Comparison table, full specs, pros and cons, and honest takes from anglers who've used them.",
+  "headline": "Best Trolling Reels Under $200 (2026): Five Worth Rigging Up",
+  "description": "Expert reviews of the best trolling reels under $200, including comparison table, specs, pros and cons, and buying advice from anglers who actually use this gear.",
   "author": {
     "@type": "Organization",
     "name": "Fishing Tribune"
@@ -25,222 +25,168 @@
 
 ---
 
-# Best Trolling Reels Under $200 (2026): Five Reels That Actually Hold Up
+# Best Trolling Reels Under $200 (2026): Five Worth Rigging Up
 
-**Bottom line up front:** If you're fishing Great Lakes walleye, open-water salmon, or offshore blues on a budget, the **Shimano Tekota 500LC** is the reel to beat under $200. It's got a line counter, a solid level-wind, and Shimano's proven drag system — and it's been the go-to for charter captains running planer boards for fifteen years running. The rest of the list covers every other scenario where $200 is your ceiling and you need something that won't embarrass you when a king salmon puts the wood to you.
+**Bottom line up front:** If you want one reel that handles everything from walleye boards to light salmon work without blowing your budget, buy the **Okuma Convector CV-45DX**. It's got the line capacity, drag smoothness, and build quality that most anglers need, and it lands well under $200. Everything else on this list is for specific situations or anglers who want a slight edge in a particular direction.
 
----
+Trolling reels get abused in ways that spinning reels never do. You're holding tension for hours, cranking up current, fighting line twist, and dragging plugs through cold water at 2 mph while you drink coffee and watch the rod tips. A bad reel reveals itself slowly — a drag that sticks at a critical moment, a frame that flexes when a king salmon decides to run, a level-wind that starts piling line unevenly after three seasons. I've seen cheap reels cause lost fish and good reels get ignored because they cost too much. The sweet spot is the sub-$200 category, and it's gotten genuinely good over the last five years.
 
-## Why Trolling Reels Are Different (And Why Budget Matters Here)
-
-Most spinning reels under $200 are perfectly fine for most freshwater applications. Trolling reels are different. You're running mono or braid at low speed for hours, dragging meat rigs or stick baits at two miles an hour, then asking that same reel to absorb a vicious strike and hold a fish that might run 20 pounds. The drag needs to be smooth from the first inch of pull, not just at maximum. The line counter (if you're running one) needs to be accurate enough to let you reproduce a depth. The gearing needs to hold up under sustained pressure, not just peak loads.
-
-Cheap trolling reels fail in specific ways: the drag washers compress and stick, the counter stops reading accurately after a season, or the levelwind pawl wears out and starts digging grooves in your line. None of that happens when you spend $400, but you don't have to spend $400. These five reels prove it.
+Here's the comparison table, then full reviews.
 
 ---
 
-## Quick Comparison Table
+## Quick Comparison: Best Trolling Reels Under $200
 
-| Reel | Price | Gear Ratio | Line Counter | Drag (Max) | Best For |
-|---|---|---|---|---|---|
-| Shimano Tekota 500LC | ~$159 | 4.2:1 | Yes | 17 lb | Great Lakes, walleye, salmon |
-| Penn Squall 20LWLC | ~$129 | 4.9:1 | Yes | 20 lb | Offshore, bluefish, stripers |
-| Okuma Convector CV-45D | ~$89 | 5.1:1 | No | 22 lb | Budget trolling, catfish, big freshwater |
-| Daiwa Sealine SG47LC | ~$149 | 3.8:1 | Yes | 15 lb | Salmon, steelhead, moderate-depth trolling |
-| Abu Garcia Ambassadeur 6500 | ~$119 | 5.3:1 | No | 15 lb | Musky, big pike, multi-species |
+| Reel | Price | Gear Ratio | Line Cap (mono) | Max Drag | Weight | Best For |
+|---|---|---|---|---|---|---|
+| Okuma Convector CV-45DX | ~$80 | 4.2:1 | 370 yds/17 lb | 18 lb | 17.8 oz | All-around walleye, salmon, striper |
+| Penn Squall 30LW | ~$130 | 4.2:1 | 480 yds/20 lb | 20 lb | 21.4 oz | Offshore-adjacent work, big bait trolling |
+| Shimano Tekota 500LC | ~$180 | 4.2:1 | 300 yds/20 lb | 22 lb | 18.7 oz | Tournament walleye, precision depth work |
+| Daiwa Sealine SL50SHA | ~$110 | 4.9:1 | 400 yds/20 lb | 20 lb | 20.6 oz | Faster retrieve trolling, Great Lakes kings |
+| Cabela's Depthmaster DM-10 | ~$60 | 3.8:1 | 500 yds/20 lb | 15 lb | 22.1 oz | Budget entry, high line capacity, inland lakes |
 
 ---
 
-## The Reviews
+## 1. Okuma Convector CV-45DX — Best Overall Under $200
 
-### 1. Shimano Tekota 500LC — Best Overall Under $200
+**Price:** ~$80 | **Gear Ratio:** 4.2:1 | **Line Cap:** 370 yds/17 lb mono | **Max Drag:** 18 lb | **Weight:** 17.8 oz
 
-**Price:** ~$159 | [Check price on Amazon](https://www.amazon.com/dp/B000AR0FDQ?tag=fishingtribun-20)
+[**→ Check Price on Amazon**](https://www.amazon.com/s?k=Okuma+Convector+CV-45DX&tag=fishingtribun-20)
 
-The Tekota has been around long enough that charter captains in Lake Michigan ports have worn out two or three of them and come back for more. That's about the best endorsement a reel can get. It's not the flashiest piece of gear on the market, but it does everything a serious troller needs: accurate line counter, smooth drag, and a levelwind that doesn't chew up your braid.
+The Convector series has been around long enough that I've watched it evolve from a solid budget option to a legitimately competitive reel at any price point under $150. The CV-45DX specifically hits a capacity sweet spot — enough line to run planer boards at distance without running out of real estate, but not so much that the spool becomes a tangled mess when you're rigging on the water.
 
-**Specs:**
-- Weight: 15.3 oz
-- Line capacity: 17 lb / 370 yd mono
-- Gear ratio: 4.2:1
-- Max drag: 17 lb
-- Bearings: 4+1
-- Line counter: Yes (digital)
+The multi-disc drag system is what sets it apart from reels at this price. Most sub-$100 trolling reels use a star drag with one or two washers and hope for the best. The Convector runs a carbon fiber and stainless steel drag stack that runs smooth across the full range, from the lightest walleye presentation to a hard-pulling salmon. I've run these on the Great Lakes and on inland reservoirs and never had a drag stick or surge mid-fight.
 
-The drag system uses Shimano's Dartanium II felt and carbon fiber washers, which means it's smooth on the initial take and stays smooth throughout the fight. I've had walleye inhale a crawler harness at barely a pound of drag, and I've had that same reel handle a 15-pound king on 15-pound test. It handled both without any drama.
+Frame is die-cast aluminum — not the graphite composite that a lot of budget reels use, which flexes under load. The level-wind mechanism tracks consistently across the spool, and the line counter on the DX model is accurate enough to be useful. I can dial 45 feet and actually be at 45 feet, not "somewhere in that range."
 
-The 4.2:1 gear ratio is the right call for deep trolling. You don't want a fast retrieve when you're running stickbaits at 60 feet — you want control. The levelwind clicker is audible enough to know when something's eating but not so loud it drives your boat partner insane.
-
-**Who it's for:** Anyone targeting Great Lakes salmon, walleye, or lake trout with planer boards or downriggers. It's also a legitimate choice for coastal stripers if you're comfortable running mono.
+**Specs:** 17.8 oz, aluminum frame, carbon fiber drag, 4 bearings + 1 anti-reverse, dual external drags, line counter.
 
 **Pros:**
-- Proven multi-decade track record on charter boats
-- Accurate line counter holds calibration season after season
-- Smooth drag from zero to max
-- Levelwind doesn't groove mono or braid
+- Genuinely smooth drag for the price — no sticking or surging
+- Accurate line counter on DX model
+- Die-cast aluminum frame doesn't flex under sustained load
+- Light enough to run all day on a planer board rod without arm fatigue
 
 **Cons:**
-- 4.2:1 feels slow if you're used to spinning gear
-- Not the most corrosion-resistant option for full saltwater use
-- Slightly heavier than comparable Penn offerings
+- 370 yd/17 lb capacity is adequate but not generous — mono users running heavier line will feel it
+- Handle could be longer for leverage on bigger fish
+- Not rated for saltwater use — rinse thoroughly if you push it into brackish
+
+**Who it's for:** The walleye guy who runs a two- or four-rod spread on a Great Lakes tributary or big reservoir. Also solid for striper trolling on the right setup. If you're buying your first dedicated trolling reel and don't want to think about it much, start here.
 
 ---
 
-### 2. Penn Squall 20LWLC — Best for Saltwater Use
+## 2. Penn Squall 30LW — Best for Heavier Trolling Applications
 
-**Price:** ~$129 | [Check price on Amazon](https://www.amazon.com/dp/B00B8FJBQO?tag=fishingtribun-20)
+**Price:** ~$130 | **Gear Ratio:** 4.2:1 | **Line Cap:** 480 yds/20 lb mono | **Max Drag:** 20 lb | **Weight:** 21.4 oz
 
-Penn built its reputation on salt. The Squall line is the company's answer to the question "what do I run offshore when I can't spend $300?" — and the answer holds up. The Squall 20LWLC (Level Wind, Line Counter) is a legitimate offshore reel at a price that doesn't sting when the mate drops it over the side.
+[**→ Check Price on Amazon**](https://www.amazon.com/s?k=Penn+Squall+30LW&tag=fishingtribun-20)
 
-**Specs:**
-- Weight: 14.8 oz
-- Line capacity: 20 lb / 370 yd mono
-- Gear ratio: 4.9:1
-- Max drag: 20 lb
-- Bearings: 4+1
-- Line counter: Yes
+Penn built its reputation on reels that catch fish in the Atlantic and hold together in salt. The Squall series brings a lot of that offshore engineering into a levelwind format that makes sense for trolling, and the 30LW is the size I'd recommend for most Great Lakes and inshore applications where you're pulling heavier plugs or wire.
 
-The HT-100 drag system is the same basic architecture Penn uses in the Senator and the Torque. Carbon fiber over stainless steel. It's been soaked in saltwater for decades and it works. The 20-pound max drag is more than enough for anything you're realistically trolling — bluefish, stripers, Spanish mackerel, king mackerel in moderate depths.
+The HT-100 drag system is the real draw here. Penn licenses this drag material across their lineup — same stuff that's in the Senators and Internationals — and it performs. You can set 15 lb of drag pressure and come back to it after an hour of trolling at 2.5 mph with a big Reef Runner on the line and that setting hasn't drifted. That consistency matters when you're running multiple rods and trying to keep presentations at different depths.
 
-The aluminum frame and stainless components mean you can wash this down with freshwater after a trip and it'll be ready next weekend without drama. The line counter is a simple mechanical unit — not as clean as Shimano's digital display, but accurate enough that you can reproduce a depth reliably once you find fish.
+The line capacity advantage over the Convector is meaningful if you're running flat lines or you need to get wire or lead-core down deep. 480 yards at 20 lb gives you enough real estate to run out a long board spread without second-guessing yourself. The graphite frame is the one concession at this price — it's not as rigid as aluminum, but Penn builds it heavier to compensate, which is why the reel tips the scale at 21.4 oz.
 
-**Who it's for:** Inshore and near-shore saltwater trolling. Bluefish, stripers, king mackerel, Spanish mackerel. Also a solid choice for Great Lakes salmon if you're already fishing salt and want one rod-and-reel combo that crosses over.
+**Specs:** 21.4 oz, graphite frame, HT-100 drag washers, 2 shielded stainless bearings, line counter model available.
 
 **Pros:**
-- HT-100 carbon drag is the real deal, not a budget imitation
-- Corrosion-resistant construction actually holds up in salt
-- 20 lb max drag covers most near-shore targets
-- Competitive price leaves room for better line
+- HT-100 drag is class-leading for this price range — silky and consistent
+- 480 yd capacity handles heavier mono and long flat-line presentations
+- Penn's saltwater heritage means real corrosion resistance
+- Widely available — easy to get parts and service
 
 **Cons:**
-- Mechanical line counter is less precise than digital options
-- 4.9:1 is faster than ideal for deep trolling with heavy lures
-- Levelwind can be finicky with very thin braid (under 20 lb)
+- Graphite frame flexes slightly under maximum drag pressure
+- Heavier than the Convector — 21.4 oz adds up on long days
+- Line counter model costs an additional $20–$30
+
+**Who it's for:** Anglers targeting king salmon, large stripers, or anyone running heavier plug presentations who wants a drag system they can trust completely. Good first step toward offshore-adjacent trolling.
 
 ---
 
-### 3. Okuma Convector CV-45D — Best Budget Option
+## 3. Shimano Tekota 500LC — Best Precision Reel for Serious Walleye Anglers
 
-**Price:** ~$89 | [Check price on Amazon](https://www.amazon.com/dp/B001HFMXCS?tag=fishingtribun-20)
+**Price:** ~$180 | **Gear Ratio:** 4.2:1 | **Line Cap:** 300 yds/20 lb mono | **Max Drag:** 22 lb | **Weight:** 18.7 oz
 
-If $89 sounds too cheap for a serious trolling reel, the Convector will change your mind. Okuma has been quietly building competent fishing gear for two decades, and the Convector series is the proof point. It's not a line-counter reel — if you need a counter, look at the Tekota or Squall — but as a raw trolling reel for catfish, big freshwater species, or someone who sets their downrigger clips at known depths, it's hard to argue with this price.
+[**→ Check Price on Amazon**](https://www.amazon.com/s?k=Shimano+Tekota+500LC&tag=fishingtribun-20)
 
-**Specs:**
-- Weight: 13.4 oz
-- Line capacity: 20 lb / 300 yd mono
-- Gear ratio: 5.1:1
-- Max drag: 22 lb
-- Bearings: 4+1
-- Line counter: No
+The Tekota sits at the top of this price category for a reason. It's a precision instrument — not a budget reel dressed up with marketing language, but a genuinely well-engineered trolling reel that Shimano has iterated on for years. The LC (line counter) model is what I recommend, because the counter is more accurate than anything else in this price range, and when you're trolling for walleye in a specific temperature band at a precise depth, accuracy is money.
 
-The 22-pound max drag at this price is surprising and real. The drag system uses Okuma's Multi-Disc Carbonite setup — multiple carbon fiber washers stacked against aluminum plates — and it's smoother than it has any right to be at this price point. I've put it on a catfish rod and watched it handle 15-pound flatheads without a complaint.
+The A-RB bearings (anti-rust, ABEC-rated) run smoother than any other reel on this list. Four of them in the Tekota, and you can feel the difference in handle smoothness over a long day. The drag system runs up to 22 lb, which is more than you'll ever use for walleye but useful if you find yourself targeting salmon or a big striper on the same setup. Carbon fiber drag washers, same concept as the Convector but executed with tighter tolerances.
 
-The 5.1:1 ratio is fast for a trolling reel, which means it's not ideal for running stickbaits at precise speeds, but it's a real advantage when you hook up in a crowd and need to get line back fast.
+The one real knock against the Tekota is line capacity. 300 yards of 20 lb mono is workable but tight if you're running long board spreads or if you hook a salmon that decides to make a run. I run 17 lb mono on mine for walleye and have 380 yards — comfortable. If you need more, step up to the 600LC.
 
-**Who it's for:** Budget-conscious trollers who don't need a line counter. Catfish anglers, big freshwater species, anyone who sets their depth mechanically and wants a spare or a backup reel that actually works.
+**Specs:** 18.7 oz, aluminum frame and sideplate, 4 A-RB bearings, carbon fiber drag, clicker, line counter accurate to ±1 yd.
 
 **Pros:**
-- 22 lb drag at $89 is remarkable
-- Lightweight at 13.4 oz
-- Solid construction with no plastic gears
-- Great entry point for new trollers
+- Most accurate line counter in this price range — repeatable depth placement
+- Silkiest retrieve of any reel on this list — bearings are genuinely excellent
+- Aluminum frame and sideplate — no flex, built to last a decade
+- 22 lb max drag gives room to run heavier setups
 
 **Cons:**
-- No line counter limits depth-finding precision
-- Line capacity is lower than competitors
-- Not designed for full saltwater exposure
-- Clicker is quieter than Shimano and Penn
+- 300 yd/20 lb capacity is the tightest on this list — step up to 600LC if you need more
+- $180 feels like a stretch when the Convector does 80% of what this does for $80
+- Clicker is functional but not loud enough on windy days
+
+**Who it's for:** The serious walleye tournament angler who runs precision spreads and needs repeatable depth control. Also the angler who buys gear once and doesn't want to replace it. If you're running inline boards with specific lure depth charts, this is the reel that rewards your precision.
 
 ---
 
-### 4. Daiwa Sealine SG47LC — Best for Salmon and Steelhead
+## 4. Daiwa Sealine SL50SHA — Best for Faster Retrieve Trolling
 
-**Price:** ~$149 | [Check price on Amazon](https://www.amazon.com/dp/B003BXKDOM?tag=fishingtribun-20)
+**Price:** ~$110 | **Gear Ratio:** 4.9:1 | **Line Cap:** 400 yds/20 lb mono | **Max Drag:** 20 lb | **Weight:** 20.6 oz
 
-Daiwa's Sealine series has been a staple on Pacific Northwest drift boats and Great Lakes charter rigs for years. The SG47LC is the line-counter version, and it's the choice for anglers who need precise depth control when running flasher-and-fly rigs or cut herring at specific temperatures in the water column.
+[**→ Check Price on Amazon**](https://www.amazon.com/s?k=Daiwa+Sealine+SL50SHA&tag=fishingtribun-20)
 
-**Specs:**
-- Weight: 14.1 oz
-- Line capacity: 17 lb / 320 yd mono
-- Gear ratio: 3.8:1
-- Max drag: 15 lb
-- Bearings: 5+1
-- Line counter: Yes
+Most trolling reels cluster around 4.2:1 gear ratio. The Sealine SL50SHA runs at 4.9:1, which sounds minor until you're trying to chase down a king salmon that just turned and ran at the boat, or you want to vary your lure speed presentation without changing boat speed. That extra retrieval rate — roughly 32 inches per crank versus 26 — gives you a real tactical advantage in certain situations.
 
-The 3.8:1 gear ratio is the slowest on this list, and that's a feature, not a bug. When you're trolling at 2.2 mph and trying to keep a herring spinning at exactly the right speed, a slower gear ratio gives you more control on the retrieve and keeps you from blowing through the strike zone when a fish bites. Pacific Northwest guides who've been running Sealines for twenty years will tell you the same thing.
+Daiwa built the Sealine for durability in mixed salt and freshwater environments. The ABS (Auto Bail System) level-wind is the feature I keep coming back to — it tracks without binding and lays line down evenly at trolling speeds, which matters for line twist prevention when you're running spinners or diving plugs. The body is machined aluminum, and the handle folds flat for storage in gear bags.
 
-The Digi-counter is accurate to within a foot at depths up to 200 feet — which covers most Great Lakes and Pacific Coast applications. The 5-bearing system is noticeably smoother on the retrieve than the 4-bearing setups on the Tekota and Squall.
+The 20 lb max drag with Daiwa's multi-disc carbon system is consistent and smooth. Not quite at Shimano's level but well ahead of most Daiwa reels from five years ago. At $110 this is genuinely good value, especially if you're a Great Lakes angler who runs fast-moving presentations for kings or lake trout.
 
-**Who it's for:** Salmon and steelhead trollers who care about precise depth control. Pacific Northwest coastal fishing. Anyone running flasher-and-fly or cut bait rigs who needs to reproduce exact depths.
+**Specs:** 20.6 oz, machined aluminum body, ABS level-wind, 5 ball bearings, 4.9:1 gear ratio, folding handle.
 
 **Pros:**
-- 3.8:1 ratio ideal for controlled-speed trolling
-- Digi-counter is among the most accurate in this price range
-- 5+1 bearing system feels premium
-- Strong reputation in Pacific Northwest charter community
+- 4.9:1 gear ratio is fastest on this list — real tactical advantage for variable speed trolling
+- ABS level-wind eliminates line twist better than competitors
+- Machined aluminum body feels premium at this price
+- Folding handle is practical for storage and travel
 
 **Cons:**
-- 15 lb max drag is the lowest on this list
-- Slower ratio is a disadvantage for fast-retrieve applications
-- Not ideal for offshore saltwater
-- Line capacity is limited for very deep water
+- Heavier than the Convector and Tekota — 20.6 oz adds up
+- Line counter not available on this model
+- 4.9:1 is slightly too fast for some slow trolling walleye presentations
+
+**Who it's for:** Great Lakes salmon and lake trout anglers who vary speed and need fast retrieval to manage slack line when fish turn and run. Also good for anyone who trolls crankbaits that benefit from a slightly faster presentation speed.
 
 ---
 
-### 5. Abu Garcia Ambassadeur 6500 — Best Multi-Species Option
+## 5. Cabela's Depthmaster DM-10 — Best Budget Entry for Beginners
 
-**Price:** ~$119 | [Check price on Amazon](https://www.amazon.com/dp/B0000AV4UQ?tag=fishingtribun-20)
+**Price:** ~$60 | **Gear Ratio:** 3.8:1 | **Line Cap:** 500 yds/20 lb mono | **Max Drag:** 15 lb | **Weight:** 22.1 oz
 
-The Ambassadeur 6500 has been catching fish since before most of us were born. It's not technically a dedicated trolling reel — it started life as a casting reel — but it's been pulled into double duty on trolling rods by musky and pike anglers for decades, and it holds up better than reels that cost twice as much.
+[**→ Check Price on Cabela's**](https://www.amazon.com/s?k=Cabela%27s+Depthmaster+trolling+reel&tag=fishingtribun-20)
 
-**Specs:**
-- Weight: 12.9 oz
-- Line capacity: 17 lb / 230 yd mono
-- Gear ratio: 5.3:1
-- Max drag: 15 lb
-- Bearings: 5+1
-- Line counter: No
+I won't oversell this one. The Depthmaster is a budget reel, and it performs like a budget reel — which is to say it handles basic trolling tasks reliably without inspiring confidence in a pressure situation. But if you're just getting into trolling, or you need a dedicated rod-and-reel combination that lives in the back of the truck for the occasional outing, $60 is hard to argue with.
 
-The Ambassadeur's drag system is a classic multi-disc setup that's been refined through countless iterations. It's not the smoothest drag on this list, but it's predictable — and predictable matters when you're fishing for 30-pound musky and you need to know exactly how much pressure you can apply before something breaks.
+The 500-yard line capacity at 20 lb is the standout spec — highest on this list, and useful if you're running flat lines on big water or if you're experimenting with lead-core. The drag tops out at 15 lb, which is enough for walleye and smaller salmon but will feel thin if a big king decides to test it. The 3.8:1 gear ratio is the slowest here, which works for slow trolling but requires patience during retrieval.
 
-The 5+1 bearing count and carbon-matrix drag give this reel a feel that's noticeably above its price point. The 5.3:1 ratio is faster than ideal for deep trolling, but for musky trollers running big swimbaits or jerkbaits at shallower depths, it's actually an asset.
+Built with graphite composite — functional, somewhat flexible, adequate for most situations. The level-wind tracks reasonably well. The clicker is loud, which I appreciate. Line counter is present but drifts slightly over time — verify against a known distance periodically.
 
-**Who it's for:** Musky and big pike anglers who want a proven, versatile reel. Multi-species anglers who troll sometimes and cast sometimes and want one reel that handles both. Anyone with brand loyalty to Abu Garcia.
+**Specs:** 22.1 oz, graphite composite frame, star drag, 3 ball bearings, 3.8:1 gear ratio, line counter.
 
 **Pros:**
-- Legendary durability — this reel will outlast your other gear
-- Lightest on the list at 12.9 oz
-- Versatile enough for casting and trolling
-- 5+1 bearings for the price is a genuine value
+- Highest line capacity on this list — 500 yds/20 lb is genuinely useful
+- Loud clicker alerts you to runs reliably
+- Lowest price — excellent entry point for beginners
+- Wide availability at Cabela's retail locations
 
 **Cons:**
-- No line counter
-- Lower line capacity than dedicated trolling reels
-- Not ideal for sustained deep-water trolling
-- Drag can feel less linear than Shimano or Penn systems
+- Drag tops at 15 lb — not enough for serious salmon work
+- 3.8:1 is slow — retrieval feels laborious on longer lines
+- Line counter drifts — verify periodically
+- Graphite frame flexes visibly under high load
 
----
-
-## What to Look For in a Trolling Reel Under $200
-
-**Line Counter vs. No Line Counter**
-If you're trolling to specific depths — and for most species, you are — you want a line counter. Reels without counters force you to count pulls or mark your line, neither of which is as accurate or repeatable as a counter. The Tekota, Squall, and Sealine all have them. The Convector and Ambassadeur don't.
-
-**Drag Quality**
-Maximum drag numbers are marketing. What matters is smooth, consistent drag across the full range. The best reels on this list use carbon fiber washers against metal plates. Avoid reels that use felt washers only — they compress, slip, and wear unevenly.
-
-**Gear Ratio**
-For most trolling applications — walleye, salmon, striper — a gear ratio between 3.8:1 and 4.5:1 is ideal. Faster ratios can work for shallow presentations, but they give you less feel and less control at low retrieve speeds.
-
-**Corrosion Resistance**
-If you're fishing salt, this matters. Penn's construction is the most saltwater-resistant on this list. Shimano and Daiwa are fine with regular rinsing. Okuma and Abu Garcia need more careful maintenance in salt.
-
----
-
-## Accessories Worth Adding
-
-If you're serious about trolling, pair your new reel with these:
-
-- **[Offshore Angler Planer Board Set](https://www.amazon.com/dp/B000BSVZSY?tag=fishingtribun-20)** — Spreads your lines and covers more of the water column. Essential for Great Lakes walleye and salmon.
-- **[Torpedo Diver](https://www.amazon.com/dp/B000AR2RYA?tag=fishingtribun-20)** — Gets your bait to depth without a downrigger. Works on any of these reels.
-- **[Aftco Rod Holder
+**Who it's for:** First-time trollers who want a functional setup without committing big
