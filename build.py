@@ -92,12 +92,13 @@ CATEGORY_COLORS = {
 FISH_SVG = '<svg width="80" height="80" viewBox="0 0 24 24" fill="white" opacity="0.3"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>'
 FISH_SVG_SM = '<svg width="40" height="40" viewBox="0 0 24 24" fill="white" opacity="0.4"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>'
 
-FTC_DISCLOSURE = (
-    'Fishing Tribune is reader-supported. When you buy through links on our site, '
-    'we may earn an affiliate commission at no extra cost to you. '
-    'We only recommend products we genuinely believe will help you catch more fish. '
-    '<a href="/affiliate-disclosure.html">Full disclosure</a>.'
-)
+def ftc_disclosure(root='./'):
+    return (
+        'Fishing Tribune is reader-supported. When you buy through links on our site, '
+        'we may earn an affiliate commission at no extra cost to you. '
+        'We only recommend products we genuinely believe will help you catch more fish. '
+        f'<a href="{root}affiliate-disclosure.html">Full disclosure</a>.'
+    )
 
 GA_ID = ''
 GSC_VERIFICATION = ''
@@ -319,7 +320,8 @@ document.querySelector('.hamburger')?.addEventListener('click',function(){
 });
 </script>'''
 
-def _head(title, description, canonical, og_type='website', extra_meta='', extra_schema=''):
+def _head(title, description, canonical, og_type='website', extra_meta='', extra_schema='', root='./'):
+    """Generate <head>. root is './' for root pages, '../' for subdir pages."""
     title_tag = f'{title} - {SITE_NAME}' if SITE_NAME not in title else title
     if len(title_tag) > 65: title_tag = title_tag[:62] + '...'
     ga = f'<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag("js",new Date());gtag("config","{GA_ID}");</script>' if GA_ID else ''
@@ -344,29 +346,30 @@ def _head(title, description, canonical, og_type='website', extra_meta='', extra
 {extra_meta}
 {extra_schema}
 <link rel="preconnect" href="https://www.amazon.com">
-<link rel="alternate" type="application/rss+xml" title="{SITE_NAME}" href="{BASE_URL}/articles.xml">
+<link rel="alternate" type="application/rss+xml" title="{SITE_NAME}" href="{root}articles.xml">
 {ga}
-<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="{root}style.css">
 </head>'''
 
 
-def _header(active=''):
+def _header(active='', root='./'):
+    """Generate header. root is './' for root pages, '../' for subdir pages."""
     return f'''<body>
 <header class="site-header">
   <div class="container wide">
-    <div class="site-title"><a href="/"><span class="logo-icon">FT</span> Fishing <span>Tribune</span></a></div>
+    <div class="site-title"><a href="{root}"><span class="logo-icon">FT</span> Fishing <span>Tribune</span></a></div>
     <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     <nav class="site-nav">
-      <a href="/">Home</a>
-      <a href="/about.html">About</a>
-      <a href="/affiliate-disclosure.html">Disclosure</a>
+      <a href="{root}">Home</a>
+      <a href="{root}about.html">About</a>
+      <a href="{root}affiliate-disclosure.html">Disclosure</a>
     </nav>
   </div>
 </header>'''
 
 
-def _footer():
-    cat_links = '\n'.join(f'      <a href="/categories/{cid}.html">{c["name"]}</a>' for cid, c in CATEGORIES.items())
+def _footer(root='./'):
+    cat_links = '\n'.join(f'      <a href="{root}categories/{cid}.html">{c["name"]}</a>' for cid, c in CATEGORIES.items())
     return f'''<footer class="site-footer">
   <div class="container wide">
     <div class="footer-grid">
@@ -380,10 +383,10 @@ def _footer():
       </div>
       <div class="footer-section">
         <h4>Company</h4>
-        <a href="/about.html">About Us</a>
-        <a href="/affiliate-disclosure.html">Affiliate Disclosure</a>
-        <a href="/sitemap.xml">Sitemap</a>
-        <a href="/articles.xml">RSS Feed</a>
+        <a href="{root}about.html">About Us</a>
+        <a href="{root}affiliate-disclosure.html">Affiliate Disclosure</a>
+        <a href="{root}sitemap.xml">Sitemap</a>
+        <a href="{root}articles.xml">RSS Feed</a>
       </div>
       <div class="footer-section">
         <h4>Legal</h4>
@@ -392,7 +395,7 @@ def _footer():
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 {SITE_NAME}. All rights reserved.</span>
-      <a href="/affiliate-disclosure.html">Affiliate Disclosure</a>
+      <a href="{root}affiliate-disclosure.html">Affiliate Disclosure</a>
     </div>
   </div>
 </footer>
@@ -403,7 +406,8 @@ def _footer():
 
 # ── Page Generators ──────────────────────────────────────────────
 
-def article_page(title, body_html, slug, excerpt, date, category, faqs, related):
+def article_page(title, body_html, slug, excerpt, date, category, faqs, related, root='../'):
+    """Generate an article page. Articles live in articles/ so root='../'."""
     cat_name = CATEGORIES.get(category, {}).get('name', 'Gear')
     breadcrumb_schema = json.dumps({"@context": "https://schema.org", "@type": "BreadcrumbList",
         "itemListElement": [
@@ -428,7 +432,7 @@ def article_page(title, body_html, slug, excerpt, date, category, faqs, related)
     related_html = ''
     if related:
         cards = '\n'.join(f'''      <div class="related-card" style="border-left:4px solid {card_border_color(r.get('category','default'))}">
-        <h3><a href="/articles/{r['slug']}.html">{esc(r['title'])}</a></h3>
+        <h3><a href="{r['slug']}.html">{esc(r['title'])}</a></h3>
       </div>''' for r in related)
         related_html = f'''
   <section class="related-articles">
@@ -436,12 +440,12 @@ def article_page(title, body_html, slug, excerpt, date, category, faqs, related)
     <div class="related-grid">{cards}</div>
   </section>'''
 
-    return f'''{_head(title, excerpt, f"{BASE_URL}/articles/{slug}.html", "article", extra_schema=schemas)}
-{_header()}
+    return f'''{_head(title, excerpt, f"{BASE_URL}/articles/{slug}.html", "article", extra_schema=schemas, root=root)}
+{_header(root=root)}
 <main class="container">
   <article>
     <div class="article-header">
-      <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/categories/{category}.html">{esc(cat_name)}</a> &rsaquo; Review</nav>
+      <nav class="breadcrumb"><a href="{root}">Home</a> &rsaquo; <a href="{root}categories/{category}.html">{esc(cat_name)}</a> &rsaquo; Review</nav>
       <h1>{esc(title)}</h1>
       <div class="article-meta">
         <span class="trust-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg> Independently Reviewed</span>
@@ -449,7 +453,7 @@ def article_page(title, body_html, slug, excerpt, date, category, faqs, related)
       </div>
     </div>
     {hero_html(category)}
-    <div class="ftc-disclosure">{FTC_DISCLOSURE}</div>
+    <div class="ftc-disclosure">{ftc_disclosure(root)}</div>
     <div class="article-body">
 {body_html}
     </div>
@@ -471,7 +475,7 @@ def article_page(title, body_html, slug, excerpt, date, category, faqs, related)
     </div>{related_html}
   </article>
 </main>
-{_footer()}'''
+{_footer(root=root)}'''
 
 
 def index_page(articles):
@@ -482,11 +486,11 @@ def index_page(articles):
         cards.append(f'''    <article class="article-card" style="border-left:4px solid {border}">
       <div class="card-body">
         <div class="card-category">{esc(cat_name)}</div>
-        <h2><a href="/articles/{a['slug']}.html">{esc(a['title'])}</a></h2>
+        <h2><a href="articles/{a['slug']}.html">{esc(a['title'])}</a></h2>
         <p class="excerpt">{esc(a['excerpt'])}</p>
         <div class="card-footer">
           <span class="card-meta">{a['words']:,} words</span>
-          <a href="/articles/{a['slug']}.html" class="read-more">Read review &rarr;</a>
+          <a href="articles/{a['slug']}.html" class="read-more">Read review &rarr;</a>
         </div>
       </div>
     </article>''')
@@ -495,7 +499,7 @@ def index_page(articles):
     for cid, c in CATEGORIES.items():
         count = sum(1 for a in articles if a.get('category') == cid)
         dark, light = cat_colors(cid)
-        cat_tiles.append(f'''      <a href="/categories/{cid}.html" class="category-tile" style="background:linear-gradient(135deg,{dark},{light})">
+        cat_tiles.append(f'''      <a href="categories/{cid}.html" class="category-tile" style="background:linear-gradient(135deg,{dark},{light})">
         {FISH_SVG_SM}
         <span>{esc(c['name'])} ({count})</span>
       </a>''')
@@ -533,7 +537,8 @@ def index_page(articles):
 {_footer()}'''
 
 
-def category_page(cat_id, cat_info, articles):
+def category_page(cat_id, cat_info, articles, root='../'):
+    """Category pages live in categories/ so root='../'."""
     cat_articles = [a for a in articles if a.get('category') == cat_id]
     dark, light = cat_colors(cat_id)
     cards = []
@@ -541,11 +546,11 @@ def category_page(cat_id, cat_info, articles):
         border = card_border_color(a.get('category', 'default'))
         cards.append(f'''    <article class="article-card" style="border-left:4px solid {border}">
       <div class="card-body">
-        <h2><a href="/articles/{a['slug']}.html">{esc(a['title'])}</a></h2>
+        <h2><a href="{root}articles/{a['slug']}.html">{esc(a['title'])}</a></h2>
         <p class="excerpt">{esc(a['excerpt'])}</p>
         <div class="card-footer">
           <span class="card-meta">{a['words']:,} words</span>
-          <a href="/articles/{a['slug']}.html" class="read-more">Read review &rarr;</a>
+          <a href="{root}articles/{a['slug']}.html" class="read-more">Read review &rarr;</a>
         </div>
       </div>
     </article>''')
@@ -553,8 +558,8 @@ def category_page(cat_id, cat_info, articles):
         cards = ['    <p>No articles in this category yet. Check back soon!</p>']
     return f'''{_head(f"{cat_info['name']} - {SITE_NAME}",
         f"Best {cat_info['name'].lower()} reviews and buying guides from {SITE_NAME}.",
-        f"{BASE_URL}/categories/{cat_id}.html")}
-{_header()}
+        f"{BASE_URL}/categories/{cat_id}.html", root=root)}
+{_header(root=root)}
 <main class="container wide">
   <div class="category-hero" style="background:linear-gradient(135deg,{dark},{light})">
     {FISH_SVG}
@@ -564,7 +569,7 @@ def category_page(cat_id, cat_info, articles):
 {chr(10).join(cards)}
   </section>
 </main>
-{_footer()}'''
+{_footer(root=root)}'''
 
 
 def about_page():
@@ -600,7 +605,7 @@ def about_page():
     <p>Our editorial team combines 50+ years of angling experience across freshwater bass fishing, saltwater fly fishing, kayak fishing, ice fishing, and tournament competition. We fish rivers, lakes, oceans, and everything in between — from farm ponds in the Midwest to flats in the Florida Keys.</p>
 
     <h2>How We Make Money</h2>
-    <p>{SITE_NAME} is reader-supported. When you click our links and make a purchase, we may earn a small affiliate commission at no extra cost to you. This revenue keeps the site running and allows us to continue producing honest, independent reviews. See our <a href="/affiliate-disclosure.html">full affiliate disclosure</a> for details.</p>
+    <p>{SITE_NAME} is reader-supported. When you click our links and make a purchase, we may earn a small affiliate commission at no extra cost to you. This revenue keeps the site running and allows us to continue producing honest, independent reviews. See our <a href="affiliate-disclosure.html">full affiliate disclosure</a> for details.</p>
     <p>Questions or feedback? Reach us at <strong>hello@fishingtribune.com</strong></p>
   </div>
 </main>
@@ -636,7 +641,7 @@ def error_404_page():
   <div class="error-page">
     <h1>404</h1>
     <p>Looks like this page got away. Let's get you back on the water.</p>
-    <a href="/" class="cta-button">Back to Homepage &rarr;</a>
+    <a href="./" class="cta-button">Back to Homepage &rarr;</a>
   </div>
 </main>
 {_footer()}'''
