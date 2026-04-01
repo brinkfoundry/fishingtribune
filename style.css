@@ -33,19 +33,25 @@ img{max-width:100%;height:auto;display:block;border-radius:var(--radius)}
 .hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px}
 .hamburger span{display:block;width:22px;height:2px;background:#fff;margin:5px 0;transition:.3s}
 
-/* ── HERO BANNER ─────────────────────────────────────────── */
-.hero-banner{height:228px;display:flex;align-items:center;justify-content:center;text-align:center}
-.hero-banner .hero-content{color:#fff;max-width:640px;padding:0 24px}
-.hero-banner h1{font-size:2.6rem;font-weight:800;line-height:1.15;margin-bottom:16px;letter-spacing:-.03em}
-.hero-banner p{font-size:1.1rem;opacity:.9;margin-bottom:24px;line-height:1.6}
-.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.15);backdrop-filter:blur(4px);padding:8px 20px;border-radius:24px;font-size:.82rem;color:rgba(255,255,255,.9);font-weight:500;border:1px solid rgba(255,255,255,.2)}
+/* ── HERO BANNER (homepage) ───────────────────────────────── */
+.hero-banner{position:relative;height:340px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center}
+.hero-banner>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero-banner .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,54,93,.6),rgba(26,54,93,.85));z-index:1}
+.hero-banner .hero-content{position:relative;z-index:2;color:#fff;max-width:640px;padding:0 24px}
+.hero-banner h1{font-size:2.4rem;font-weight:800;line-height:1.15;margin-bottom:14px;letter-spacing:-.03em}
+.hero-banner p{font-size:1.05rem;opacity:.9;margin-bottom:20px;line-height:1.6}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.15);backdrop-filter:blur(4px);padding:8px 18px;border-radius:24px;font-size:.82rem;color:rgba(255,255,255,.9);font-weight:500;border:1px solid rgba(255,255,255,.2)}
 .hero-badge strong{color:#fff}
 
-/* ── ARTICLE HERO VISUAL (CSS-only) ──────────────────────── */
-.hero-visual{height:120px;border-radius:var(--radius-lg);margin-bottom:32px}
+/* ── ARTICLE HERO IMAGE ──────────────────────────────────── */
+.article-hero{width:100%;height:360px;overflow:hidden;border-radius:var(--radius-lg);margin-bottom:32px}
+.article-hero img{width:100%;height:100%;object-fit:cover}
 
-/* ── SECTION DIVIDERS ────────────────────────────────────── */
-hr.section-divider{border:none;height:3px;background:linear-gradient(90deg,transparent,var(--navy),var(--orange),transparent);margin:40px 0;opacity:.3}
+/* ── CATEGORY HERO ───────────────────────────────────────── */
+.category-hero{position:relative;height:240px;overflow:hidden;border-radius:var(--radius-lg);margin-bottom:32px;display:flex;align-items:center;justify-content:center}
+.category-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.category-hero .overlay{position:absolute;inset:0;background:rgba(26,54,93,.65)}
+.category-hero h1{position:relative;z-index:1;color:#fff;font-size:2rem;font-weight:800}
 
 /* ── TRUST BADGE ─────────────────────────────────────────── */
 .trust-badge{display:inline-flex;align-items:center;gap:6px;background:#eef2ff;border:1px solid #c7d2fe;padding:4px 12px;border-radius:16px;font-size:.72rem;font-weight:600;color:var(--navy);text-transform:uppercase;letter-spacing:.04em}
@@ -124,7 +130,8 @@ hr.section-divider{border:none;height:3px;background:linear-gradient(90deg,trans
 .article-body strong{font-weight:700}
 .article-body code{background:#f1f5f9;padding:2px 6px;border-radius:4px;font-size:.88em}
 .article-body hr{border:none;border-top:1px solid var(--border);margin:36px 0}
-.article-body table{width:100%;border-collapse:collapse;margin:24px 0;font-size:.88rem;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.table-wrap{overflow-x:auto;margin:24px 0}
+.article-body table{width:100%;border-collapse:collapse;font-size:.88rem;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
 .article-body thead{background:var(--navy);color:#fff}
 .article-body th{padding:12px 16px;font-weight:600;text-align:left;font-size:.82rem;text-transform:uppercase;letter-spacing:.03em}
 .article-body td{padding:12px 16px;border-bottom:1px solid var(--border-light)}
@@ -172,10 +179,7 @@ hr.section-divider{border:none;height:3px;background:linear-gradient(90deg,trans
 .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:.78rem}
 .footer-bottom a{color:rgba(255,255,255,.5)}
 
-/* ── CATEGORY + ABOUT + ERROR PAGES ──────────────────────── */
-.category-hero{height:200px;border-radius:var(--radius-lg);margin-bottom:32px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
-.category-hero h1{color:#fff;font-size:2rem;font-weight:800}
-
+/* ── ABOUT + ERROR PAGES ─────────────────────────────────── */
 .page-header{padding:48px 0 24px;border-bottom:1px solid var(--border);margin-bottom:32px}
 .page-header h1{font-size:1.8rem;font-weight:800;color:var(--navy)}
 
@@ -186,12 +190,12 @@ hr.section-divider{border:none;height:3px;background:linear-gradient(90deg,trans
 /* ── RESPONSIVE ──────────────────────────────────────────── */
 @media(max-width:768px){
   html{font-size:16px}
-  .hero-banner{height:200px}
+  .hero-banner{height:260px}
   .hero-banner h1{font-size:1.8rem}
   .article-grid{grid-template-columns:1fr}
   .article-header h1{font-size:1.5rem}
-  .article-hero{height:240px}
-  .section-image.left{float:none;width:100%}
+  .article-hero{height:220px}
+  .category-hero{height:180px}
   .footer-grid{grid-template-columns:1fr 1fr}
   .author-bio{flex-direction:column;align-items:center;text-align:center}
   .email-signup .signup-form{flex-direction:column}
@@ -199,7 +203,6 @@ hr.section-divider{border:none;height:3px;background:linear-gradient(90deg,trans
   .product-card .product-header{flex-direction:column;align-items:center;text-align:center}
   .product-card .specs-grid{grid-template-columns:1fr 1fr}
   .category-grid{grid-template-columns:repeat(3,1fr)}
-  .category-hero{height:180px}
   .site-nav{display:none;position:absolute;top:60px;left:0;right:0;background:var(--navy);flex-direction:column;padding:16px 24px;gap:12px;border-top:1px solid rgba(255,255,255,.1)}
   .site-nav.open{display:flex}
   .hamburger{display:block}
