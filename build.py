@@ -77,34 +77,20 @@ CATEGORIES = {
     'accessories': {'name': 'Gear & Accessories', 'keywords': ['backpack', 'sunglasses', 'wader', 'clothing', 'glove', 'net', 'cooler', 'chair', 'umbrella', 'hat', 'scale', 'bucket', 'bag', 'cleaning', 'boot']},
 }
 
-# Curated Unsplash photos — every image is fishing/water/nature, verified 200 OK.
-# URL format: https://images.unsplash.com/{id}?w=W&h=H&fit=crop&auto=format&q=75
-HERO_PHOTOS = [
-    'photo-1500463959177-e0869687df26',  # fishing at sunset lake
-    'photo-1504309092620-4d0ec726efa4',  # fly fishing river
-    'photo-1516962126636-27ad087061cc',  # fishing boat ocean
-    'photo-1559570278-eb8d71d06403',     # fishing rod sunset
-    'photo-1517824806704-9040b037703b',  # lake landscape
-    'photo-1470770903676-69b98201ea1c',  # lake mountains
-    'photo-1501785888041-af3ef285b470',  # water landscape
-    'photo-1542362567-b07e54358753',     # boat on water
-]
-SECTION_PHOTOS = [
-    'photo-1544551763-46a013bb70d5',     # fishing tackle
-    'photo-1542362567-b07e54358753',     # boat on water
-    'photo-1501446529957-6226bd447c46',  # sunrise water
-    'photo-1476514525535-07fb3b4ae5f1',  # lake nature
-    'photo-1504280390367-361c6d9f38f4',  # outdoor nature
-    'photo-1470770903676-69b98201ea1c',  # lake mountains
-    'photo-1500463959177-e0869687df26',  # fishing at sunset
-    'photo-1517824806704-9040b037703b',  # lake landscape
-]
-SECTION_ALTS = [
-    'Early morning on the water — the best time to fish',
-    'Calm waters and clear skies — perfect fishing conditions',
-    'The right gear makes all the difference on the water',
-    'Heading out for a day of fishing',
-]
+# CSS-only visuals — zero external image requests, instant load, always consistent.
+CATEGORY_COLORS = {
+    'electronics': ('#2b6cb0', '#3182ce'),  # blue
+    'rods': ('#276749', '#38a169'),          # green
+    'reels': ('#c05621', '#ed8936'),         # orange
+    'tackle': ('#c53030', '#e53e3e'),        # red
+    'kayaks': ('#2c7a7b', '#38b2ac'),        # teal
+    'accessories': ('#6b46c1', '#805ad5'),   # purple
+    'default': ('#1a365d', '#2b6cb0'),       # navy
+}
+
+# Fish hook SVG icon — used across hero banners and cards
+FISH_SVG = '<svg width="80" height="80" viewBox="0 0 24 24" fill="white" opacity="0.3"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>'
+FISH_SVG_SM = '<svg width="40" height="40" viewBox="0 0 24 24" fill="white" opacity="0.4"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>'
 
 FTC_DISCLOSURE = (
     'Fishing Tribune is reader-supported. When you buy through links on our site, '
@@ -121,31 +107,25 @@ def esc(s: str) -> str:
     return html.escape(str(s))
 
 
-def unsplash_url(photo_id: str, w: int = 1200, h: int = 600) -> str:
-    """Build Unsplash CDN URL from a curated photo ID."""
-    return f'https://images.unsplash.com/{photo_id}?w={w}&h={h}&fit=crop&auto=format&q=75'
+def cat_colors(cat: str) -> tuple:
+    """Return (dark, light) color pair for a category."""
+    return CATEGORY_COLORS.get(cat, CATEGORY_COLORS['default'])
 
 
-def img_for_slug(slug: str, cat: str = '', w: int = 1200, h: int = 600) -> str:
-    """Deterministic hero image for an article. Same slug = same photo always."""
-    slug_hash = int(hashlib.md5(slug.encode()).hexdigest()[:8], 16)
-    photo_id = HERO_PHOTOS[slug_hash % len(HERO_PHOTOS)]
-    return unsplash_url(photo_id, w, h)
+def hero_gradient(cat: str) -> str:
+    """CSS gradient string for a category hero banner."""
+    dark, light = cat_colors(cat)
+    return f'linear-gradient(135deg, {dark} 0%, {light} 50%, #ed8936 100%)'
 
 
-def img_for_category(cat: str, w: int = 1200, h: int = 600) -> str:
-    """Category hero image — picks from hero photos based on category name hash."""
-    cat_hash = int(hashlib.md5(cat.encode()).hexdigest()[:8], 16)
-    photo_id = HERO_PHOTOS[cat_hash % len(HERO_PHOTOS)]
-    return unsplash_url(photo_id, w, h)
+def hero_html(cat: str) -> str:
+    """Full-width CSS-only hero banner with fishing icon."""
+    return f'<div class="hero-visual" style="background:{hero_gradient(cat)}">{FISH_SVG}</div>'
 
 
-def section_img(index: int, slug: str = '') -> tuple:
-    """Return (url, alt) for the i-th section image. Varies per article."""
-    slug_offset = int(hashlib.md5(slug.encode()).hexdigest()[:4], 16) if slug else 0
-    photo_id = SECTION_PHOTOS[(index + slug_offset) % len(SECTION_PHOTOS)]
-    alt = SECTION_ALTS[index % len(SECTION_ALTS)]
-    return unsplash_url(photo_id, 900, 400), alt
+def card_border_color(cat: str) -> str:
+    """Left border color for article cards."""
+    return cat_colors(cat)[1]
 
 
 def classify_article(title: str, slug: str) -> str:
@@ -242,15 +222,12 @@ def md_to_html(md: str, insert_images: bool = True, current_slug: str = '') -> s
         text = re.sub(r'`(.+?)`', r'<code>\1</code>', text)
         return text
 
-    def maybe_insert_image():
+    def maybe_insert_divider():
         nonlocal para_count, img_index
         if not insert_images:
             return
         if para_count > 0 and para_count % 4 == 0 and img_index < 3:
-            url, alt = section_img(img_index, current_slug)
-            align = 'left' if img_index % 2 == 0 else ''
-            cls = f' {align}' if align else ''
-            out.append(f'<figure class="section-image{cls}"><img src="{url}" alt="{esc(alt)}" loading="lazy" width="900" height="400"><figcaption>{esc(alt)}</figcaption></figure>')
+            out.append('<hr class="section-divider">')
             img_index += 1
 
     for line in lines:
@@ -290,7 +267,7 @@ def md_to_html(md: str, insert_images: bool = True, current_slug: str = '') -> s
             flush_list()
             out.append(f'<p>{inline(stripped)}</p>')
             para_count += 1
-            maybe_insert_image()
+            maybe_insert_divider()
     flush_list(); flush_table(); flush_blockquote()
     return '\n'.join(out)
 
@@ -362,11 +339,10 @@ def _head(title, description, canonical, og_type='website', extra_meta='', extra
 <meta property="og:description" content="{esc(description)}">
 <meta property="og:url" content="{canonical}">
 <meta property="og:site_name" content="{SITE_NAME}">
-<meta property="og:image" content="{unsplash_url(HERO_PHOTOS[0], 1200, 630)}">
+<meta property="og:image" content="{BASE_URL}/og-default.png">
 <meta name="twitter:card" content="summary_large_image">
 {extra_meta}
 {extra_schema}
-<link rel="preconnect" href="https://images.unsplash.com">
 <link rel="preconnect" href="https://www.amazon.com">
 <link rel="alternate" type="application/rss+xml" title="{SITE_NAME}" href="{BASE_URL}/articles.xml">
 {ga}
@@ -429,8 +405,6 @@ def _footer():
 
 def article_page(title, body_html, slug, excerpt, date, category, faqs, related):
     cat_name = CATEGORIES.get(category, {}).get('name', 'Gear')
-    hero_url = img_for_slug(slug, category, 1200, 500)
-
     breadcrumb_schema = json.dumps({"@context": "https://schema.org", "@type": "BreadcrumbList",
         "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL},
@@ -439,7 +413,6 @@ def article_page(title, body_html, slug, excerpt, date, category, faqs, related)
         ]})
     article_schema = json.dumps({"@context": "https://schema.org", "@type": "Article",
         "headline": title, "description": excerpt,
-        "image": hero_url,
         "url": f"{BASE_URL}/articles/{slug}.html",
         "datePublished": date, "dateModified": BUILD_DATE,
         "author": {"@type": "Organization", "name": f"{SITE_NAME} Editorial"},
@@ -454,8 +427,7 @@ def article_page(title, body_html, slug, excerpt, date, category, faqs, related)
 
     related_html = ''
     if related:
-        cards = '\n'.join(f'''      <div class="related-card">
-        <div class="related-img"><img src="{img_for_slug(r['slug'], r.get('category','default'), 400, 200)}" alt="{esc(r['title'])}" loading="lazy" width="400" height="200"></div>
+        cards = '\n'.join(f'''      <div class="related-card" style="border-left:4px solid {card_border_color(r.get('category','default'))}">
         <h3><a href="/articles/{r['slug']}.html">{esc(r['title'])}</a></h3>
       </div>''' for r in related)
         related_html = f'''
@@ -476,9 +448,7 @@ def article_page(title, body_html, slug, excerpt, date, category, faqs, related)
         <span class="updated-badge"><svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg> Updated {BUILD_DATE}</span>
       </div>
     </div>
-    <div class="article-hero">
-      <img src="{hero_url}" alt="{esc(title)}" loading="lazy" width="1200" height="500">
-    </div>
+    {hero_html(category)}
     <div class="ftc-disclosure">{FTC_DISCLOSURE}</div>
     <div class="article-body">
 {body_html}
@@ -508,13 +478,10 @@ def index_page(articles):
     cards = []
     for a in articles:
         cat_name = CATEGORIES.get(a.get('category', ''), {}).get('name', 'Gear')
-        img_url = img_for_slug(a['slug'], a.get('category', 'default'), 640, 360)
-        cards.append(f'''    <article class="article-card">
-      <div class="card-image">
-        <img src="{img_url}" alt="{esc(a['title'])}" loading="lazy" width="640" height="360">
-        <span class="card-category-badge">{esc(cat_name)}</span>
-      </div>
+        border = card_border_color(a.get('category', 'default'))
+        cards.append(f'''    <article class="article-card" style="border-left:4px solid {border}">
       <div class="card-body">
+        <div class="card-category">{esc(cat_name)}</div>
         <h2><a href="/articles/{a['slug']}.html">{esc(a['title'])}</a></h2>
         <p class="excerpt">{esc(a['excerpt'])}</p>
         <div class="card-footer">
@@ -527,10 +494,9 @@ def index_page(articles):
     cat_tiles = []
     for cid, c in CATEGORIES.items():
         count = sum(1 for a in articles if a.get('category') == cid)
-        img_url = img_for_category(cid, 320, 280)
-        cat_tiles.append(f'''      <a href="/categories/{cid}.html" class="category-tile">
-        <img src="{img_url}" alt="{esc(c['name'])}" loading="lazy" width="320" height="280">
-        <div class="cat-overlay"></div>
+        dark, light = cat_colors(cid)
+        cat_tiles.append(f'''      <a href="/categories/{cid}.html" class="category-tile" style="background:linear-gradient(135deg,{dark},{light})">
+        {FISH_SVG_SM}
         <span>{esc(c['name'])} ({count})</span>
       </a>''')
 
@@ -543,10 +509,9 @@ def index_page(articles):
         f"{BASE_URL}/",
         extra_schema=f'<script type="application/ld+json">{schema}</script>')}
 {_header('home')}
-<section class="hero-banner">
-  <img src="{unsplash_url(HERO_PHOTOS[0], 1400, 600)}" alt="Fishing at sunrise" loading="eager" width="1400" height="600">
-  <div class="overlay"></div>
+<section class="hero-banner" style="background:linear-gradient(135deg,#1a365d 0%,#2b6cb0 50%,#ed8936 100%)">
   <div class="hero-content">
+    {FISH_SVG}
     <h1>Expert Fishing Gear Reviews &amp; Buyer's Guides</h1>
     <p>Honest reviews from anglers who fish. No fluff, no filler, no fake rankings. Just the gear that holds up on the water.</p>
     <div class="hero-badge"><strong>{len(articles)}</strong> in-depth reviews &middot; Updated {BUILD_DATE}</div>
@@ -570,12 +535,11 @@ def index_page(articles):
 
 def category_page(cat_id, cat_info, articles):
     cat_articles = [a for a in articles if a.get('category') == cat_id]
-    img_url = img_for_category(cat_id, 1200, 480)
+    dark, light = cat_colors(cat_id)
     cards = []
     for a in cat_articles:
-        ci = img_for_slug(a['slug'], a.get('category', 'default'), 640, 360)
-        cards.append(f'''    <article class="article-card">
-      <div class="card-image"><img src="{ci}" alt="{esc(a['title'])}" loading="lazy" width="640" height="360"></div>
+        border = card_border_color(a.get('category', 'default'))
+        cards.append(f'''    <article class="article-card" style="border-left:4px solid {border}">
       <div class="card-body">
         <h2><a href="/articles/{a['slug']}.html">{esc(a['title'])}</a></h2>
         <p class="excerpt">{esc(a['excerpt'])}</p>
@@ -592,9 +556,8 @@ def category_page(cat_id, cat_info, articles):
         f"{BASE_URL}/categories/{cat_id}.html")}
 {_header()}
 <main class="container wide">
-  <div class="category-hero">
-    <img src="{img_url}" alt="{esc(cat_info['name'])}" loading="lazy" width="1200" height="480">
-    <div class="overlay"></div>
+  <div class="category-hero" style="background:linear-gradient(135deg,{dark},{light})">
+    {FISH_SVG}
     <h1>{esc(cat_info['name'])}</h1>
   </div>
   <section class="article-grid">
@@ -605,15 +568,13 @@ def category_page(cat_id, cat_info, articles):
 
 
 def about_page():
-    hero = unsplash_url(HERO_PHOTOS[0], 1200, 480)
     return f'''{_head(f"About {SITE_NAME}",
         f"{SITE_NAME} is an independent fishing gear review site built by anglers, for anglers.",
         f"{BASE_URL}/about.html")}
 {_header('about')}
 <main class="container">
-  <div class="category-hero" style="margin-top:24px">
-    <img src="{hero}" alt="Fishing at sunrise" loading="lazy" width="1200" height="480">
-    <div class="overlay"></div>
+  <div class="category-hero" style="margin-top:24px;background:linear-gradient(135deg,#1a365d,#2b6cb0)">
+    {FISH_SVG}
     <h1>About {SITE_NAME}</h1>
   </div>
   <div class="article-body">
