@@ -34,7 +34,7 @@ img{max-width:100%;height:auto;display:block;border-radius:var(--radius)}
 .hamburger span{display:block;width:22px;height:2px;background:#fff;margin:5px 0;transition:.3s}
 
 /* ── HERO BANNER ─────────────────────────────────────────── */
-.hero-banner{height:380px;display:flex;align-items:center;justify-content:center;text-align:center}
+.hero-banner{height:228px;display:flex;align-items:center;justify-content:center;text-align:center}
 .hero-banner .hero-content{color:#fff;max-width:640px;padding:0 24px}
 .hero-banner h1{font-size:2.6rem;font-weight:800;line-height:1.15;margin-bottom:16px;letter-spacing:-.03em}
 .hero-banner p{font-size:1.1rem;opacity:.9;margin-bottom:24px;line-height:1.6}
@@ -42,7 +42,7 @@ img{max-width:100%;height:auto;display:block;border-radius:var(--radius)}
 .hero-badge strong{color:#fff}
 
 /* ── ARTICLE HERO VISUAL (CSS-only) ──────────────────────── */
-.hero-visual{height:200px;border-radius:var(--radius-lg);margin-bottom:32px;display:flex;align-items:center;justify-content:center}
+.hero-visual{height:120px;border-radius:var(--radius-lg);margin-bottom:32px}
 
 /* ── SECTION DIVIDERS ────────────────────────────────────── */
 hr.section-divider{border:none;height:3px;background:linear-gradient(90deg,transparent,var(--navy),var(--orange),transparent);margin:40px 0;opacity:.3}
@@ -186,7 +186,7 @@ hr.section-divider{border:none;height:3px;background:linear-gradient(90deg,trans
 /* ── RESPONSIVE ──────────────────────────────────────────── */
 @media(max-width:768px){
   html{font-size:16px}
-  .hero-banner{height:320px}
+  .hero-banner{height:200px}
   .hero-banner h1{font-size:1.8rem}
   .article-grid{grid-template-columns:1fr}
   .article-header h1{font-size:1.5rem}

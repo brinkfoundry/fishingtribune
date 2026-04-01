@@ -78,19 +78,17 @@ CATEGORIES = {
 }
 
 # CSS-only visuals — zero external image requests, instant load, always consistent.
+# All categories use the same muted slate for uniformity.
+SLATE = '#475569'
 CATEGORY_COLORS = {
-    'electronics': ('#2b6cb0', '#3182ce'),  # blue
-    'rods': ('#276749', '#38a169'),          # green
-    'reels': ('#c05621', '#ed8936'),         # orange
-    'tackle': ('#c53030', '#e53e3e'),        # red
-    'kayaks': ('#2c7a7b', '#38b2ac'),        # teal
-    'accessories': ('#6b46c1', '#805ad5'),   # purple
-    'default': ('#1a365d', '#2b6cb0'),       # navy
+    'electronics': (SLATE, SLATE),
+    'rods': (SLATE, SLATE),
+    'reels': (SLATE, SLATE),
+    'tackle': (SLATE, SLATE),
+    'kayaks': (SLATE, SLATE),
+    'accessories': (SLATE, SLATE),
+    'default': (SLATE, SLATE),
 }
-
-# Fish hook SVG icon — used across hero banners and cards
-FISH_SVG = '<svg width="80" height="80" viewBox="0 0 24 24" fill="white" opacity="0.3"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>'
-FISH_SVG_SM = '<svg width="40" height="40" viewBox="0 0 24 24" fill="white" opacity="0.4"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>'
 
 def ftc_disclosure(root='./'):
     return (
@@ -121,12 +119,18 @@ def hero_gradient(cat: str) -> str:
 
 def hero_html(cat: str) -> str:
     """Full-width CSS-only hero banner with fishing icon."""
-    return f'<div class="hero-visual" style="background:{hero_gradient(cat)}">{FISH_SVG}</div>'
+    return f'<div class="hero-visual" style="background:#1a365d"></div>'
 
 
 def card_border_color(cat: str) -> str:
-    """Left border color for article cards."""
-    return cat_colors(cat)[1]
+    """Left border color for article cards — uniform slate."""
+    return SLATE
+
+
+def read_time(words: int) -> str:
+    """Convert word count to approximate read time."""
+    minutes = max(1, round(words / 250))
+    return f'~{minutes} min read'
 
 
 def classify_article(title: str, slug: str) -> str:
@@ -302,7 +306,9 @@ def extract_excerpt(md: str, max_len: int = 155) -> str:
         if (not line or line.startswith('#') or line.startswith('*By ')
                 or line.startswith('*Target') or line.startswith('{')
                 or line.startswith('FTC') or line.startswith('FishingTribune')
-                or line.startswith('Last Updated')):
+                or line.startswith('Last Updated')
+                or 'affiliate link' in line.lower()
+                or 'affiliate commission' in line.lower()):
             continue
         clean = re.sub(r'\*\*(.+?)\*\*', r'\1', line)
         clean = re.sub(r'\*(.+?)\*', r'\1', clean)
@@ -485,11 +491,11 @@ def index_page(articles):
         border = card_border_color(a.get('category', 'default'))
         cards.append(f'''    <article class="article-card" style="border-left:4px solid {border}">
       <div class="card-body">
-        <div class="card-category">{esc(cat_name)}</div>
+        <div class="card-category" style="color:#64748b">{esc(cat_name)}</div>
         <h2><a href="articles/{a['slug']}.html">{esc(a['title'])}</a></h2>
         <p class="excerpt">{esc(a['excerpt'])}</p>
         <div class="card-footer">
-          <span class="card-meta">{a['words']:,} words</span>
+          <span class="card-meta">{read_time(a['words'])}</span>
           <a href="articles/{a['slug']}.html" class="read-more">Read review &rarr;</a>
         </div>
       </div>
@@ -499,8 +505,7 @@ def index_page(articles):
     for cid, c in CATEGORIES.items():
         count = sum(1 for a in articles if a.get('category') == cid)
         dark, light = cat_colors(cid)
-        cat_tiles.append(f'''      <a href="categories/{cid}.html" class="category-tile" style="background:linear-gradient(135deg,{dark},{light})">
-        {FISH_SVG_SM}
+        cat_tiles.append(f'''      <a href="categories/{cid}.html" class="category-tile" style="background:{SLATE}">
         <span>{esc(c['name'])} ({count})</span>
       </a>''')
 
@@ -513,9 +518,8 @@ def index_page(articles):
         f"{BASE_URL}/",
         extra_schema=f'<script type="application/ld+json">{schema}</script>')}
 {_header('home')}
-<section class="hero-banner" style="background:linear-gradient(135deg,#1a365d 0%,#2b6cb0 50%,#ed8936 100%)">
+<section class="hero-banner" style="background:#1a365d">
   <div class="hero-content">
-    {FISH_SVG}
     <h1>Expert Fishing Gear Reviews &amp; Buyer's Guides</h1>
     <p>Honest reviews from anglers who fish. No fluff, no filler, no fake rankings. Just the gear that holds up on the water.</p>
     <div class="hero-badge"><strong>{len(articles)}</strong> in-depth reviews &middot; Updated {BUILD_DATE}</div>
@@ -549,7 +553,7 @@ def category_page(cat_id, cat_info, articles, root='../'):
         <h2><a href="{root}articles/{a['slug']}.html">{esc(a['title'])}</a></h2>
         <p class="excerpt">{esc(a['excerpt'])}</p>
         <div class="card-footer">
-          <span class="card-meta">{a['words']:,} words</span>
+          <span class="card-meta">{read_time(a['words'])}</span>
           <a href="{root}articles/{a['slug']}.html" class="read-more">Read review &rarr;</a>
         </div>
       </div>
@@ -561,8 +565,7 @@ def category_page(cat_id, cat_info, articles, root='../'):
         f"{BASE_URL}/categories/{cat_id}.html", root=root)}
 {_header(root=root)}
 <main class="container wide">
-  <div class="category-hero" style="background:linear-gradient(135deg,{dark},{light})">
-    {FISH_SVG}
+  <div class="category-hero" style="background:{SLATE}">
     <h1>{esc(cat_info['name'])}</h1>
   </div>
   <section class="article-grid">
@@ -578,8 +581,7 @@ def about_page():
         f"{BASE_URL}/about.html")}
 {_header('about')}
 <main class="container">
-  <div class="category-hero" style="margin-top:24px;background:linear-gradient(135deg,#1a365d,#2b6cb0)">
-    {FISH_SVG}
+  <div class="category-hero" style="margin-top:24px;background:#1a365d">
     <h1>About {SITE_NAME}</h1>
   </div>
   <div class="article-body">
