@@ -312,7 +312,8 @@ def md_to_html(md: str) -> str:
             out.append(f'<li>{inline(stripped[2:].strip())}</li>')
         elif re.match(r'^\d+\.\s', stripped):
             if not in_ol: flush_list(); out.append('<ol>'); in_ol = True
-            out.append(f'<li>{inline(re.sub(r"^\\d+\\.\\s*", "", stripped))}</li>')
+            cleaned = re.sub(r'^\d+\.\s*', '', stripped)
+            out.append(f'<li>{inline(cleaned)}</li>')
         else:
             flush_list()
             out.append(f'<p>{inline(stripped)}</p>')
