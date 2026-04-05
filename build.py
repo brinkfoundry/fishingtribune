@@ -216,6 +216,10 @@ def clean_md(md: str, title: str) -> str:
         if ('reader-supported' in sl and 'affiliate' in sl): continue
         if s.startswith('FTC') and 'disclosure' in sl: continue
         if ('amazon services llc' in sl): continue
+        # Skip LLM preamble artifacts
+        if s.startswith("I'll ") or s.startswith("Now I'll "): continue
+        if '<tool_call>' in s or '<tool_response>' in s: continue
+        if 'save it to the specified location' in sl: continue
         cleaned.append(line)
     return '\n'.join(cleaned)
 
